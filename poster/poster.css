@@ -1,0 +1,278 @@
+@charset "UTF-8";
+
+:root {
+  --red: #a71930;
+  --red-dark: #7d1021;
+  --blue: #123d6a;
+  --ink: #17324a;
+  --paper: #f3ebda;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 1600px;
+  height: 2400px;
+  margin: 0;
+  overflow: hidden;
+  background: var(--paper);
+}
+
+body {
+  font-family: "Microsoft YaHei", "Noto Sans SC", sans-serif;
+}
+
+.poster {
+  position: relative;
+  width: 1600px;
+  height: 2400px;
+  overflow: hidden;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+.poster-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.paper-glow {
+  position: absolute;
+  top: 88px;
+  left: 92px;
+  width: 790px;
+  height: 650px;
+  background: radial-gradient(ellipse at 30% 30%, rgba(249, 244, 231, 0.93), rgba(249, 244, 231, 0.53) 55%, transparent 78%);
+  filter: blur(5px);
+}
+
+.poster-header {
+  position: absolute;
+  top: 138px;
+  left: 140px;
+  z-index: 3;
+  width: 780px;
+}
+
+.journal-line {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 52px;
+  color: var(--red);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 9px;
+}
+
+.journal-line i {
+  width: 12px;
+  aspect-ratio: 1;
+  background: var(--red);
+  border-radius: 50%;
+}
+
+.school-line {
+  margin: 0 0 18px;
+  color: var(--red);
+  font-size: 38px;
+  font-weight: 900;
+  letter-spacing: 8px;
+}
+
+.poster-header h1 {
+  margin: 0;
+  color: var(--blue);
+  font-family: "STKaiti", "KaiTi", serif;
+  font-size: 132px;
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: 5px;
+  text-shadow: 0 3px 0 rgba(18, 61, 106, 0.05);
+}
+
+.title-rule {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  width: 630px;
+  margin-top: 42px;
+}
+
+.title-rule b {
+  width: 112px;
+  height: 10px;
+  background: var(--red);
+  clip-path: polygon(0 20%, 100% 0, 96% 78%, 4% 100%);
+}
+
+.title-rule span {
+  height: 2px;
+  flex: 1;
+  background: rgba(18, 61, 106, 0.55);
+}
+
+.poster-subtitle {
+  margin: 30px 0 0;
+  color: var(--ink);
+  font-size: 29px;
+  font-weight: 800;
+  letter-spacing: 5px;
+}
+
+.tyut-mark {
+  position: absolute;
+  top: 118px;
+  right: 112px;
+  z-index: 4;
+  display: grid;
+  width: 126px;
+  aspect-ratio: 1;
+  place-items: center;
+  color: var(--blue);
+  border: 3px solid rgba(18, 61, 106, 0.75);
+  border-radius: 50%;
+  background: rgba(247, 241, 228, 0.68);
+  transform: rotate(5deg);
+}
+
+.tyut-mark::before {
+  position: absolute;
+  inset: 9px;
+  content: "";
+  border: 1px solid rgba(18, 61, 106, 0.46);
+  border-radius: 50%;
+}
+
+.tyut-mark span {
+  margin-top: 17px;
+  font-family: Georgia, serif;
+  font-size: 26px;
+  font-weight: 900;
+}
+
+.tyut-mark small {
+  margin-top: -38px;
+  font-family: Georgia, serif;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.guide-note {
+  position: absolute;
+  top: 790px;
+  left: 155px;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 17px 28px 19px;
+  color: #fff9ec;
+  background: var(--red);
+  box-shadow: 0 14px 32px rgba(75, 42, 34, 0.16);
+  transform: rotate(-4deg);
+}
+
+.guide-note::after {
+  position: absolute;
+  right: -21px;
+  bottom: -13px;
+  width: 48px;
+  height: 36px;
+  content: "";
+  background: rgba(222, 188, 116, 0.73);
+  transform: rotate(9deg);
+}
+
+.guide-note strong {
+  font-family: Georgia, serif;
+  font-size: 17px;
+  letter-spacing: 4px;
+}
+
+.guide-note span {
+  font-family: "STKaiti", "KaiTi", serif;
+  font-size: 27px;
+  font-weight: 800;
+}
+
+.qr-content {
+  position: absolute;
+  top: 1234px;
+  left: 411px;
+  z-index: 5;
+  width: 780px;
+  height: 1000px;
+  color: var(--ink);
+}
+
+.qr-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 22px 20px;
+  border-bottom: 2px solid rgba(18, 61, 106, 0.16);
+}
+
+.qr-heading b {
+  color: var(--red);
+  font-family: Georgia, serif;
+  font-size: 29px;
+  letter-spacing: 7px;
+}
+
+.qr-frame {
+  display: grid;
+  width: 642px;
+  aspect-ratio: 1;
+  place-items: center;
+  padding: 16px;
+  margin: 27px auto 0;
+  background: #fff;
+}
+
+.qr-frame img {
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+}
+
+.qr-footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 25px;
+  padding: 22px 25px 15px;
+}
+
+.qr-footer strong {
+  color: var(--blue);
+  font-family: "STKaiti", "KaiTi", serif;
+  font-size: 38px;
+  letter-spacing: 6px;
+  white-space: nowrap;
+}
+
+.qr-footer span {
+  color: #3e586c;
+  font-family: Georgia, serif;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+.unofficial {
+  margin: 0;
+  color: #7d857e;
+  text-align: center;
+  font-size: 17px;
+  letter-spacing: 2px;
+}
