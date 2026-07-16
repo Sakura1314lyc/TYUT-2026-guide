@@ -757,7 +757,7 @@ const checklistGroups = [
   },
 ];
 
-const guideCategories = [
+const quickGuideCategories = [
   "全部",
   "入学准备",
   "报到军训",
@@ -769,7 +769,7 @@ const guideCategories = [
   "毕业规划",
 ];
 
-const guides = [
+const quickGuides = [
   {
     id: 1,
     category: "入学准备",
@@ -1366,6 +1366,18 @@ const guides = [
   },
 ];
 
+const guideSections = window.tyutFullGuide || [];
+const guideCategories = ["全部", ...guideSections.map((section) => section.title)];
+const guides = guideSections.flatMap((section) =>
+  section.topics.map((topic) => ({
+    ...topic,
+    category: section.title,
+    sectionId: section.id,
+    sectionNumber: section.number,
+    sectionEnglish: section.english,
+  })),
+);
+
 const faqs = [
   {
     question: "2026 级新生到底哪天报到？",
@@ -1494,16 +1506,173 @@ function renderCategoryFilters() {
     .join("");
 }
 
+function escapeGuideText(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function formatGuideText(value) {
+  return escapeGuideText(value).replace(
+    /(https?:\/\/[^\s，。；]+)/g,
+    '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>',
+  );
+}
+
+function getGuideExcerpt(guide) {
+  if (!guide.lines.length && guide.images.length) {
+    return `参考文档在这个栏目中收录了 ${guide.images.length} 张资料图，展开后可查看完整图片。`;
+  }
+  if (!guide.lines.length) {
+    return "参考文档目前仅设置了这个栏目，尚未填写具体正文。网站保留原目录位置，后续有内容时可继续补充。";
+  }
+
+  const excerpt = guide.lines
+    .filter((line) => line.type === "text")
+    .slice(0, 3)
+    .map((line) => line.text)
+    .join(" ");
+  return excerpt.length > 185 ? `${excerpt.slice(0, 185)}……` : excerpt;
+}
+
+function getGuideOutline(guide) {
+  const headings = guide.lines
+    .filter((line) => line.type === "header1" || line.type === "header2")
+    .map((line) => line.text);
+
+  if (headings.length) return headings.slice(0, 6);
+
+  return guide.lines
+    .filter(
+      (line) =>
+        line.type === "text" &&
+        line.text.length <= 24 &&
+        (/[:：]$/.test(line.text) || /^[一二三四五六七八九十\d]+[、.．]/.test(line.text)),
+    )
+    .slice(0, 5)
+    .map((line) => line.text);
+}
+
+function renderGuideLine(line, index) {
+  const text = formatGuideText(line.text);
+  if (line.type === "header1") return `<h4>${text}</h4>`;
+  if (line.type === "header2") return `<h5>${text}</h5>`;
+  if (line.type === "link") {
+    return `<p class="guide-reference-line"><span>资料</span><strong>${text}</strong></p>`;
+  }
+
+  const isLabel =
+    line.text.length <= 26 &&
+    (/[:：]$/.test(line.text) ||
+      /^[一二三四五六七八九十]+[、.．]/.test(line.text) ||
+      /^(报名流程|推免基本条件|综合成绩计算|保研率数据|学期目标|每日上限|跑步打卡|跑步时长|上传时间|运动员|广播投稿)$/.test(
+        line.text,
+      ));
+
+  return `
+    <p class="${isLabel ? "is-label" : ""}">
+      <span>${String(index + 1).padStart(2, "0")}</span>
+      <span>${text}</span>
+    </p>
+  `;
+}
+
+function renderGuideCard(guide) {
+  const outline = getGuideOutline(guide);
+  const contentCount = guide.lines.length + guide.images.length;
+  const contentLabel = contentCount
+    ? `展开全部 ${contentCount} 项内容`
+    : "查看栏目说明";
+
+  return `
+    <article class="guide-card reveal" id="guide-${guide.id}">
+      <div class="guide-number">
+        <span>${escapeGuideText(guide.code)}</span>
+        <small>总目录 ${String(guide.order).padStart(2, "0")} / ${String(guides.length).padStart(2, "0")}</small>
+      </div>
+      <div class="guide-card-body">
+        <div class="guide-meta">
+          <span class="guide-category">${escapeGuideText(guide.category)}</span>
+          <span class="guide-length">
+            ${
+              contentCount
+                ? `收录 ${guide.lines.length} 条文字${guide.images.length ? ` · ${guide.images.length} 张图` : ""}`
+                : "原文栏目暂未填写"
+            }
+          </span>
+        </div>
+        <h3>${escapeGuideText(guide.title)}</h3>
+        <p class="guide-summary">${formatGuideText(getGuideExcerpt(guide))}</p>
+        <div class="guide-status-row">
+          <span class="${guide.status === "complete" ? "is-complete" : "is-placeholder"}">
+            ${guide.status === "complete" ? "正文已收录" : "保留原目录"}
+          </span>
+          ${
+            guide.needsVerification
+              ? '<span class="needs-check">含时效信息，办理前请核对官方通知</span>'
+              : ""
+          }
+        </div>
+        ${
+          outline.length
+            ? `<div class="guide-outline" aria-label="本篇目录">${outline
+                .map((item) => `<span>${escapeGuideText(item)}</span>`)
+                .join("")}</div>`
+            : ""
+        }
+        <details class="guide-detail">
+          <summary><span>${contentLabel}</span><i aria-hidden="true"></i></summary>
+          ${
+            guide.images.length
+              ? `
+                <div class="guide-image-gallery">
+                  ${guide.images
+                    .map(
+                      (image) => `
+                        <a href="${escapeGuideText(image.src)}" target="_blank" rel="noopener">
+                          <img src="${escapeGuideText(image.src)}" alt="${escapeGuideText(image.alt)}" loading="lazy">
+                          <span>${escapeGuideText(image.alt)}</span>
+                        </a>
+                      `,
+                    )
+                    .join("")}
+                </div>
+              `
+              : ""
+          }
+          ${
+            guide.lines.length
+              ? `<div class="guide-article">${guide.lines
+                  .map((line, index) => renderGuideLine(line, index))
+                  .join("")}</div>`
+              : !guide.images.length
+                ? `
+                <div class="guide-placeholder">
+                  <strong>该栏目在参考文档中暂无正文</strong>
+                  <p>目录已按原文完整保留。后续补充时可直接归入「${escapeGuideText(guide.title)}」，不会打乱现有阅读顺序。</p>
+                </div>
+              `
+                : ""
+          }
+        </details>
+      </div>
+    </article>
+  `;
+}
+
 function renderGuides() {
   const query = document.querySelector("[data-guide-search]").value.trim().toLowerCase();
   const visible = guides.filter((guide) => {
     const inCategory = activeCategory === "全部" || guide.category === activeCategory;
     const searchable = [
       guide.category,
-      guide.phase,
+      guide.code,
       guide.title,
-      guide.summary,
-      ...guide.blocks.flatMap((block) => [block.title, block.text]),
+      guide.sourceTitle,
+      ...guide.lines.map((line) => line.text),
     ]
       .join(" ")
       .toLowerCase();
@@ -1511,52 +1680,38 @@ function renderGuides() {
   });
 
   document.querySelector("[data-result-count]").textContent = String(visible.length);
+  const visibleIds = new Set(visible.map((guide) => guide.id));
+  const chapterMarkup = guideSections
+    .map((section) => {
+      const sectionGuides = guides.filter(
+        (guide) => guide.sectionId === section.id && visibleIds.has(guide.id),
+      );
+      if (!sectionGuides.length) return "";
+
+      return `
+        <section class="guide-chapter">
+          <header class="guide-chapter-header reveal">
+            <span>${section.number}</span>
+            <div>
+              <small>${section.english}</small>
+              <h3>${section.title}</h3>
+            </div>
+            <p>${sectionGuides.length} / ${section.topics.length} 个栏目</p>
+          </header>
+          <div class="guide-chapter-list">
+            ${sectionGuides.map(renderGuideCard).join("")}
+          </div>
+        </section>
+      `;
+    })
+    .join("");
+
   document.querySelector("[data-guide-list]").innerHTML = visible.length
-    ? visible
-        .map(
-          (guide) => `
-            <article class="guide-card reveal">
-              <div class="guide-number">
-                <span>${String(guide.id).padStart(2, "0")}</span>
-                <small>${guide.phase}</small>
-              </div>
-              <div class="guide-card-body">
-                <div class="guide-meta">
-                  <span class="guide-category">${guide.category}</span>
-                  <span class="guide-length">全文 ${guide.blocks.length} 节</span>
-                </div>
-                <h3>${guide.title}</h3>
-                <p class="guide-summary">${guide.summary}</p>
-                <div class="guide-outline" aria-label="本篇目录">
-                  ${guide.blocks.map((block) => `<span>${block.title}</span>`).join("")}
-                </div>
-                <details class="guide-detail">
-                  <summary><span>展开完整攻略</span><i aria-hidden="true"></i></summary>
-                  <div class="guide-blocks">
-                    ${guide.blocks
-                      .map(
-                        (block, blockIndex) => `
-                          <section class="guide-block ${block.tip ? "tip" : ""}">
-                            <span class="guide-block-index">${String(blockIndex + 1).padStart(2, "0")}</span>
-                            <div>
-                              <strong>${block.title}</strong>
-                              <p>${block.text}</p>
-                            </div>
-                          </section>
-                        `,
-                      )
-                      .join("")}
-                  </div>
-                </details>
-              </div>
-            </article>
-          `,
-        )
-        .join("")
+    ? chapterMarkup
     : `
         <div class="empty-results">
           <strong>暂时没搜到这条</strong>
-          <p>换个关键词试试，例如“宿舍”“交通”“校园卡”或“军训”。</p>
+          <p>换个关键词试试，例如“试验班”“食堂”“综测”“小白龙”或“绩点”。</p>
         </div>
       `;
 
@@ -2047,6 +2202,16 @@ async function sharePage() {
 }
 
 function handleClick(event) {
+  const expandButton = event.target.closest("[data-guide-expand]");
+  if (expandButton) {
+    const shouldOpen = expandButton.dataset.guideExpand === "open";
+    document.querySelectorAll("[data-guide-list] .guide-detail").forEach((detail) => {
+      detail.open = shouldOpen;
+    });
+    showToast(shouldOpen ? "已展开当前结果" : "已收起全部攻略");
+    return;
+  }
+
   const categoryButton = event.target.closest("[data-guide-category]");
   if (categoryButton) {
     activeCategory = categoryButton.dataset.guideCategory;

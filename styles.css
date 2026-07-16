@@ -2167,7 +2167,88 @@ p {
   color: var(--tyut-red);
 }
 
+.guide-expand-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding-top: 9px;
+  border-top: 1px solid rgba(18, 61, 106, 0.09);
+}
+
+.guide-expand-actions button {
+  min-height: 34px;
+  padding: 6px 12px;
+  color: var(--tyut-blue);
+  background: transparent;
+  border: 1px solid rgba(18, 61, 106, 0.16);
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.67rem;
+  font-weight: 850;
+}
+
+.guide-expand-actions button:first-child {
+  color: #fff;
+  background: var(--tyut-red);
+  border-color: var(--tyut-red);
+}
+
 .guide-list {
+  display: grid;
+  gap: 52px;
+}
+
+.guide-chapter {
+  display: grid;
+  gap: 17px;
+}
+
+.guide-chapter-header {
+  display: grid;
+  grid-template-columns: 64px 1fr auto;
+  gap: 18px;
+  align-items: center;
+  padding: 0 5px 16px;
+  border-bottom: 2px solid var(--tyut-blue);
+}
+
+.guide-chapter-header > span {
+  color: var(--tyut-red);
+  font-family: Georgia, serif;
+  font-size: 2.05rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.guide-chapter-header > div {
+  display: grid;
+  gap: 2px;
+}
+
+.guide-chapter-header small {
+  color: #8b949d;
+  font-size: 0.61rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+}
+
+.guide-chapter-header h3 {
+  margin: 0;
+  color: var(--tyut-blue);
+  font-family: "STKaiti", "KaiTi", serif;
+  font-size: 1.7rem;
+  line-height: 1.1;
+}
+
+.guide-chapter-header p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 800;
+}
+
+.guide-chapter-list {
   display: grid;
   gap: 15px;
 }
@@ -2254,6 +2335,41 @@ p {
   line-height: 1.8;
 }
 
+.guide-status-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 15px;
+}
+
+.guide-status-row span {
+  display: inline-flex;
+  min-height: 25px;
+  align-items: center;
+  padding: 4px 9px;
+  border-radius: 999px;
+  font-size: 0.64rem;
+  font-weight: 800;
+}
+
+.guide-status-row .is-complete {
+  color: #2f6f55;
+  background: rgba(66, 143, 106, 0.09);
+  border: 1px solid rgba(66, 143, 106, 0.17);
+}
+
+.guide-status-row .is-placeholder {
+  color: #777067;
+  background: rgba(104, 96, 86, 0.07);
+  border: 1px solid rgba(104, 96, 86, 0.14);
+}
+
+.guide-status-row .needs-check {
+  color: #8a5a0b;
+  background: #fff8e7;
+  border: 1px solid rgba(194, 134, 24, 0.2);
+}
+
 .guide-outline {
   display: flex;
   flex-wrap: wrap;
@@ -2319,6 +2435,147 @@ p {
 
 .guide-detail[open] > summary i::after {
   transform: rotate(0);
+}
+
+.guide-image-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 11px;
+  padding: 18px 0;
+  border-top: 1px solid rgba(18, 61, 106, 0.08);
+}
+
+.guide-image-gallery a {
+  display: grid;
+  grid-template-rows: minmax(180px, 1fr) auto;
+  overflow: hidden;
+  color: var(--muted);
+  background: #f7f4ed;
+  border: 1px solid rgba(18, 61, 106, 0.11);
+  border-radius: 11px;
+}
+
+.guide-image-gallery img {
+  width: 100%;
+  height: 100%;
+  max-height: 430px;
+  object-fit: contain;
+  background: #fff;
+}
+
+.guide-image-gallery span {
+  padding: 9px 11px;
+  border-top: 1px solid rgba(18, 61, 106, 0.08);
+  font-size: 0.65rem;
+  font-weight: 750;
+}
+
+.guide-article {
+  padding: 8px 0 2px;
+  border-top: 1px solid rgba(18, 61, 106, 0.08);
+}
+
+.guide-article h4,
+.guide-article h5 {
+  color: var(--tyut-blue);
+  line-height: 1.4;
+}
+
+.guide-article h4 {
+  padding: 19px 18px;
+  margin: 18px 0 8px;
+  background:
+    linear-gradient(90deg, rgba(18, 61, 106, 0.08), transparent 80%);
+  border-left: 3px solid var(--tyut-red);
+  border-radius: 0 10px 10px 0;
+  font-family: "STKaiti", "KaiTi", serif;
+  font-size: 1.3rem;
+}
+
+.guide-article h5 {
+  margin: 22px 0 7px;
+  font-size: 0.86rem;
+}
+
+.guide-article > p {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 10px;
+  padding: 13px 3px;
+  margin: 0;
+  color: #4e5a65;
+  border-bottom: 1px solid rgba(18, 61, 106, 0.07);
+  font-size: 0.77rem;
+  line-height: 1.86;
+}
+
+.guide-article > p > span:first-child {
+  padding-top: 2px;
+  color: #a0a8b0;
+  font-family: Georgia, serif;
+  font-size: 0.64rem;
+  font-weight: 900;
+}
+
+.guide-article > p.is-label {
+  margin-top: 9px;
+  color: var(--tyut-blue);
+  background: rgba(18, 61, 106, 0.035);
+  border-bottom-color: rgba(18, 61, 106, 0.12);
+  font-weight: 900;
+}
+
+.guide-article a {
+  color: var(--tyut-blue-bright);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+}
+
+.guide-reference-line {
+  align-items: center;
+  color: var(--tyut-blue) !important;
+}
+
+.guide-reference-line > span:first-child {
+  display: inline-flex;
+  min-height: 22px;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 6px;
+  color: var(--tyut-red);
+  background: rgba(167, 25, 48, 0.07);
+  border-radius: 5px;
+  font-family: inherit;
+}
+
+.guide-placeholder {
+  padding: 24px 20px;
+  margin-top: 5px;
+  color: var(--muted);
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      rgba(18, 61, 106, 0.025),
+      rgba(18, 61, 106, 0.025) 8px,
+      transparent 8px,
+      transparent 16px
+    );
+  border: 1px dashed rgba(18, 61, 106, 0.2);
+  border-radius: 11px;
+}
+
+.guide-placeholder strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--tyut-blue);
+  font-size: 0.8rem;
+}
+
+.guide-placeholder p {
+  margin: 0;
+  font-size: 0.73rem;
+  line-height: 1.75;
 }
 
 .guide-blocks {
@@ -3234,6 +3491,36 @@ p {
     padding-inline: 12px;
   }
 
+  .guide-expand-actions {
+    justify-content: flex-start;
+    overflow-x: auto;
+  }
+
+  .guide-expand-actions button {
+    flex: 0 0 auto;
+  }
+
+  .guide-list {
+    gap: 42px;
+  }
+
+  .guide-chapter-header {
+    grid-template-columns: 47px 1fr;
+    gap: 12px;
+  }
+
+  .guide-chapter-header > span {
+    font-size: 1.55rem;
+  }
+
+  .guide-chapter-header h3 {
+    font-size: 1.4rem;
+  }
+
+  .guide-chapter-header > p {
+    grid-column: 2;
+  }
+
   .guide-card {
     grid-template-columns: 1fr;
   }
@@ -3297,6 +3584,25 @@ p {
   .guide-outline span {
     display: flex;
     align-items: center;
+  }
+
+  .guide-article h4 {
+    padding: 15px 13px;
+    font-size: 1.12rem;
+  }
+
+  .guide-image-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .guide-image-gallery a {
+    grid-template-rows: minmax(160px, auto) auto;
+  }
+
+  .guide-article > p {
+    grid-template-columns: 27px 1fr;
+    gap: 7px;
+    padding-block: 12px;
   }
 
   .guide-block {
@@ -3589,7 +3895,10 @@ p {
     box-shadow: none;
   }
 
-  .guide-detail > .guide-blocks {
+  .guide-detail > .guide-blocks,
+  .guide-detail > .guide-article,
+  .guide-detail > .guide-image-gallery,
+  .guide-detail > .guide-placeholder {
     display: grid !important;
   }
 

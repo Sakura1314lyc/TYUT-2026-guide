@@ -330,32 +330,32 @@
             <h2>太理新生攻略库</h2>
           </div>
           <p>
-            从收到通知书到毕业资格审核，按时间顺序整理成 22 篇可检索攻略。
-            建议先通读所在阶段，再按学院当年通知核对具体要求。
+            按参考文档原目录完整整理为 8 个章节、67 个栏目，已收录其中现有的全部正文与资料图。
+            先按章节阅读，再用搜索定位具体事项。
           </p>
         </div>
         <div class="guide-overview reveal">
           <div class="guide-overview-copy">
-            <span>建议阅读顺序</span>
-            <strong>先办眼前事，再为下一学期留准备时间</strong>
+            <span>完整目录</span>
+            <strong>67 个栏目按原文顺序逐项展开</strong>
           </div>
           <ol class="guide-sequence" aria-label="攻略阅读顺序">
-            <li><b>01</b><span>入学准备</span></li>
-            <li><b>02</b><span>报到军训</span></li>
-            <li><b>03</b><span>学习成长</span></li>
-            <li><b>04</b><span>体育健康</span></li>
-            <li><b>05</b><span>奖助发展</span></li>
+            <li><b>01</b><span>基础常识</span></li>
+            <li><b>02</b><span>入学须知</span></li>
+            <li><b>03</b><span>学习指导</span></li>
+            <li><b>04</b><span>体育运动</span></li>
+            <li><b>05</b><span>奖助学金</span></li>
             <li><b>06</b><span>校园生活</span></li>
-            <li><b>07</b><span>组织实践</span></li>
-            <li><b>08</b><span>毕业规划</span></li>
+            <li><b>07</b><span>吃喝娱乐</span></li>
+            <li><b>08</b><span>毕业须知</span></li>
           </ol>
         </div>
         <aside class="guide-source reveal">
           <div>
             <span>内容说明</span>
             <p>
-              本库参考《新生入学指南大全》重新分类、删减重复内容并补充办理顺序。
-              日期、金额、名额、开放时间及学籍规则可能调整，须以太原理工大学和所在学院当年正式通知为准。
+              本库按《新生入学指南大全》的现有目录、正文和资料图完整整理，装饰性 Emoji 已删除；原文尚未填写的栏目也保留位置。
+              文档含往届经验和时效信息，日期、金额、名额、开放时间及规则须以学校和学院当年正式通知为准。
             </p>
           </div>
           <a href="https://docs.qq.com/aio/DVHZ3bU1yTG5Jb1hM" target="_blank" rel="noopener noreferrer">
@@ -372,6 +372,10 @@
           </label>
           <span class="result-count">找到 <strong data-result-count>0</strong> 篇</span>
           <div class="category-filters" data-category-filters></div>
+          <div class="guide-expand-actions">
+            <button type="button" data-guide-expand="open">展开当前结果</button>
+            <button type="button" data-guide-expand="close">全部收起</button>
+          </div>
         </div>
         <div class="guide-list" data-guide-list></div>
       </section>
@@ -460,6 +464,7 @@
 
     <div class="toast" role="status" aria-live="polite" data-toast></div>
 
+    <script src="./guide-data.js" defer></script>
     <script src="./app.js" defer></script>
   </body>
 </html>
