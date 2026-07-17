@@ -2432,7 +2432,7 @@ function showToast(message) {
 async function sharePage() {
   const data = {
     title: document.title,
-    text: "太原理工大学 2026 新生实地手册：校区地图、报到攻略和行李清单。",
+    text: "人手一本——太原理工大学 2026 新生必看手册：校区地图、报到攻略和行李清单。",
     url: window.location.href,
   };
 
