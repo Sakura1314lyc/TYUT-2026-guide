@@ -1506,6 +1506,35 @@ function saveChecklist() {
   }
 }
 
+function isChecklistOptional(label) {
+  return /（[^）]*(?:按需|如适用|可能需要|先确认|按学校要求|按宿舍规定|按专业要求|个人需求|个人需要|备用)[^）]*）/.test(
+    label,
+  );
+}
+
+function renderChecklistItem([id, label]) {
+  const checked = completed.has(id);
+  return `
+    <li class="check-item ${checked ? "is-checked" : ""}">
+      <label>
+        <input type="checkbox" data-check-id="${id}" ${checked ? "checked" : ""}>
+        <span class="custom-check" aria-hidden="true"></span>
+        <span>${label}</span>
+      </label>
+    </li>
+  `;
+}
+
+function renderChecklistBucket(title, items, tone = "primary") {
+  if (!items.length) return "";
+  return `
+    <section class="check-items-block is-${tone}">
+      <header><strong>${title}</strong><span>${items.length} 项</span></header>
+      <ul>${items.map(renderChecklistItem).join("")}</ul>
+    </section>
+  `;
+}
+
 function renderChecklist() {
   const container = document.querySelector("[data-checklist]");
   container.innerHTML = checklistGroups
@@ -1513,6 +1542,8 @@ function renderChecklist() {
       const meta = checklistGroupMeta[group.code] || { icon: "✓", note: "按个人需要准备。" };
       const done = group.items.filter(([id]) => completed.has(id)).length;
       const preview = group.items.slice(0, 2).map(([, label]) => label.replace(/（.*?）/g, "")).join("、");
+      const essentials = group.items.filter(([, label]) => !isChecklistOptional(label));
+      const optional = group.items.filter(([, label]) => isChecklistOptional(label));
       return `
         <details class="check-group reveal" data-check-group>
           <summary>
@@ -1530,22 +1561,8 @@ function renderChecklist() {
           </summary>
           <div class="check-group-body">
             <p>${meta.note}</p>
-            <ul>
-              ${group.items
-                .map(([id, label]) => {
-                  const checked = completed.has(id);
-                  return `
-                    <li class="check-item ${checked ? "is-checked" : ""}">
-                      <label>
-                        <input type="checkbox" data-check-id="${id}" ${checked ? "checked" : ""}>
-                        <span class="custom-check" aria-hidden="true"></span>
-                        <span>${label}</span>
-                      </label>
-                    </li>
-                  `;
-                })
-                .join("")}
-            </ul>
+            ${renderChecklistBucket("优先准备", essentials)}
+            ${renderChecklistBucket("按需 / 到校确认", optional, "optional")}
           </div>
         </details>
       `;
@@ -1638,11 +1655,15 @@ function getGuideExcerpt(guide) {
 }
 
 function getGuideOutline(guide) {
+  if (guide.code === "2.5") {
+    return buildCampusCardReadingGroups(guide.lines).map((group) => group.title);
+  }
+
   const headings = guide.lines
     .filter((line) => line.type === "header1" || line.type === "header2")
     .map((line) => line.text);
 
-  if (headings.length) return headings.slice(0, 6);
+  if (headings.length) return headings.slice(0, 6).map(cleanGuideSectionTitle);
 
   return guide.lines
     .filter(
@@ -1652,30 +1673,177 @@ function getGuideOutline(guide) {
         (/[:：]$/.test(line.text) || /^[一二三四五六七八九十\d]+[、.．]/.test(line.text)),
     )
     .slice(0, 5)
-    .map((line) => line.text);
+    .map((line) => cleanGuideSectionTitle(line.text));
 }
 
-function renderGuideLine(line, index) {
-  const text = formatGuideText(line.text);
-  if (line.type === "header1") return `<h4>${text}</h4>`;
-  if (line.type === "header2") return `<h5>${text}</h5>`;
-  if (line.type === "link") {
-    return `<p class="guide-reference-line"><span>资料</span><strong>${text}</strong></p>`;
+function cleanGuideSectionTitle(text) {
+  return text
+    .replace(/^[（(][一二三四五六七八九十\d]+[）)]\s*/, "")
+    .replace(/^[一二三四五六七八九十]+[、.．]\s*/, "")
+    .replace(/^\d+(?:[、．]|\.(?!\d))\s*/, "")
+    .trim();
+}
+
+function isGuideSectionLabel(text) {
+  if (text.length > 36) return false;
+  return (
+    /[:：]$/.test(text) ||
+    /^[一二三四五六七八九十]+[、.．]\s*[^，。；]{2,30}$/.test(text) ||
+    /^\d+(?:[、．]|\.(?!\d))\s*[^，。；]{2,30}$/.test(text) ||
+    /^(报名流程|申请流程|推免基本条件|综合成绩计算|保研率数据|学期目标|每日上限|跑步打卡|跑步时长|上传时间|运动员|广播投稿|考试时间|注意事项|办理流程)$/.test(
+      text,
+    )
+  );
+}
+
+function getGuideLineKind(line) {
+  if (line.type === "link") return "reference";
+  if (/^[^，。；：:]{2,14}[：:][^：:]+/.test(line.text)) return "fact";
+  if (/^(?:[•●·✓✅]|[-—]\s)|^[（(]?[一二三四五六七八九十\d]+[）)、.．]/.test(line.text)) {
+    return "point";
   }
+  return "paragraph";
+}
 
-  const isLabel =
-    line.text.length <= 26 &&
-    (/[:：]$/.test(line.text) ||
-      /^[一二三四五六七八九十]+[、.．]/.test(line.text) ||
-      /^(报名流程|推免基本条件|综合成绩计算|保研率数据|学期目标|每日上限|跑步打卡|跑步时长|上传时间|运动员|广播投稿)$/.test(
-        line.text,
-      ));
+function mergeGuideTimelineItems(items) {
+  const merged = [];
 
+  items.forEach((item) => {
+    const previous = merged[merged.length - 1];
+    if (
+      previous?.kind === "paragraph" &&
+      /^\d{4}年(?:\s*[-—至]\s*\d{4}年)?$/.test(previous.text) &&
+      item.kind === "paragraph"
+    ) {
+      merged[merged.length - 1] = {
+        kind: "fact",
+        text: `${previous.text}：${item.text}`,
+      };
+      return;
+    }
+    merged.push(item);
+  });
+
+  return merged;
+}
+
+function buildCampusCardReadingGroups(lines) {
+  const groupMap = {
+    overview: { title: "用途与电子卡", items: [] },
+    services: { title: "常用服务入口", items: [] },
+    repair: { title: "挂失与补卡", items: [] },
+    locations: { title: "自助机分布", items: [] },
+    centers: { title: "卡务中心位置", items: [] },
+  };
+  let active = "overview";
+
+  lines.forEach((line) => {
+    const text = line.text.trim();
+    if (text === "校园一卡通使用指南") return;
+
+    if (/^(充值大厅|查询大厅|服务大厅)[：:]/.test(text)) {
+      active = "services";
+    } else if (/卡(?:不小心)?丢|卡遗失|自助机功能/.test(text)) {
+      active = "repair";
+    } else if (/卡务中心.*位置/.test(text)) {
+      active = "centers";
+      return;
+    } else if (
+      active === "repair" &&
+      /^(迎西校区|虎峪校区|明向校区)[：:]/.test(text)
+    ) {
+      active = "locations";
+    }
+
+    let kind = getGuideLineKind(line);
+    if (kind === "paragraph" && /自助服务$/.test(text)) kind = "point";
+    groupMap[active].items.push({ kind, text });
+  });
+
+  return Object.values(groupMap).filter((group) => group.items.length);
+}
+
+function buildGuideReadingGroups(guide) {
+  const { lines } = guide;
+  if (guide.code === "2.5") return buildCampusCardReadingGroups(lines);
+
+  const groups = [];
+  let current = { title: "", items: [] };
+
+  const flush = () => {
+    if (!current.items.length) {
+      current = { title: "", items: [] };
+      return;
+    }
+    current.items = mergeGuideTimelineItems(current.items);
+    groups.push(current);
+    current = { title: "", items: [] };
+  };
+
+  lines.forEach((line) => {
+    if (line.type === "header1") {
+      flush();
+      current.title = cleanGuideSectionTitle(line.text);
+      return;
+    }
+    if (line.type === "header2") {
+      if (current.items.length) flush();
+      current.title = cleanGuideSectionTitle(line.text);
+      return;
+    }
+    if (isGuideSectionLabel(line.text)) {
+      if (!current.title && !current.items.length) current.title = cleanGuideSectionTitle(line.text);
+      else if (current.items.length) {
+        flush();
+        current.title = cleanGuideSectionTitle(line.text);
+      } else current.items.push({ kind: "subheading", text: line.text });
+      return;
+    }
+    current.items.push({ kind: getGuideLineKind(line), text: line.text });
+  });
+  flush();
+
+  if (groups.length === 1 && !groups[0].title) groups[0].title = "核心内容";
+  return groups;
+}
+
+function renderGuideReadingItem(item) {
+  const text = formatGuideText(item.text);
+  if (item.kind === "subheading") return `<h5>${text}</h5>`;
+  if (item.kind === "reference") {
+    return `<div class="guide-reading-reference"><span>资料链接</span><strong>${text}</strong></div>`;
+  }
+  if (item.kind === "fact") {
+    const [label, ...rest] = item.text.split(/[：:]/);
+    return `<div class="guide-reading-fact"><strong>${escapeGuideText(label)}</strong><p>${formatGuideText(rest.join("："))}</p></div>`;
+  }
+  if (item.kind === "point") {
+    return `<div class="guide-reading-point"><i aria-hidden="true"></i><p>${text}</p></div>`;
+  }
+  return `<p class="guide-reading-paragraph">${text}</p>`;
+}
+
+function renderGuideArticle(guide) {
+  const groups = buildGuideReadingGroups(guide);
   return `
-    <p class="${isLabel ? "is-label" : ""}">
-      <span>${String(index + 1).padStart(2, "0")}</span>
-      <span>${text}</span>
-    </p>
+    <div class="guide-reading-grid">
+      ${groups
+        .map((group, index) => {
+          const wide = group.items.length <= 1 || group.items.length > 8 || groups.length === 1;
+          return `
+            <section class="guide-reading-section ${wide ? "is-wide" : ""}">
+              <header>
+                <span>${String(index + 1).padStart(2, "0")}</span>
+                <h4>${escapeGuideText(group.title || "补充说明")}</h4>
+              </header>
+              <div class="guide-reading-content">
+                ${group.items.map(renderGuideReadingItem).join("")}
+              </div>
+            </section>
+          `;
+        })
+        .join("")}
+    </div>
   `;
 }
 
@@ -1686,18 +1854,27 @@ function renderGuideCard(guide) {
   return `
     <details class="guide-card reveal" id="guide-${guide.id}">
       <summary class="guide-card-summary">
-        <span class="guide-number">${escapeGuideText(guide.code)}</span>
         <span class="guide-card-copy">
-          <small>${escapeGuideText(guide.category)} · ${contentCount ? `${guide.lines.length} 条内容${guide.images.length ? ` / ${guide.images.length} 图` : ""}` : "待补充"}</small>
+          <span class="guide-card-meta">
+            <b class="guide-number">${escapeGuideText(guide.code)}</b>
+            <small>${escapeGuideText(guide.category)}</small>
+            <small>${contentCount ? `${guide.lines.length} 条内容${guide.images.length ? ` / ${guide.images.length} 图` : ""}` : "待补充"}</small>
+          </span>
           <strong>${escapeGuideText(guide.title)}</strong>
           <em>${formatGuideText(getGuideExcerpt(guide))}</em>
         </span>
-        <span class="guide-card-state ${guide.status === "complete" ? "is-complete" : "is-placeholder"}">
-          ${guide.status === "complete" ? "可阅读" : "待补充"}
+        <span class="guide-card-action">
+          <span class="guide-card-state ${guide.status === "complete" ? "is-complete" : "is-placeholder"}">
+            ${guide.status === "complete" ? "阅读" : "待补充"}
+          </span>
+          <i class="guide-card-toggle" aria-hidden="true"></i>
         </span>
-        <i class="guide-card-toggle" aria-hidden="true"></i>
       </summary>
       <div class="guide-card-body">
+        <div class="guide-reading-head">
+          <div><small>${escapeGuideText(guide.code)} / READING MODE</small><strong>${escapeGuideText(guide.title)}</strong></div>
+          <button type="button" data-guide-collapse-card>收起本篇</button>
+        </div>
         ${
           guide.needsVerification
             ? '<p class="guide-verify-note">含日期、金额或规则等时效信息，办理前请核对学校与学院最新通知。</p>'
@@ -1711,28 +1888,8 @@ function renderGuideCard(guide) {
             : ""
         }
           ${
-            guide.images.length
-              ? `
-                <div class="guide-image-gallery">
-                  ${guide.images
-                    .map(
-                      (image) => `
-                        <a href="${escapeGuideText(image.src)}" target="_blank" rel="noopener">
-                          <img src="${escapeGuideText(image.src)}" alt="${escapeGuideText(image.alt)}" loading="lazy">
-                          <span>${escapeGuideText(image.alt)}</span>
-                        </a>
-                      `,
-                    )
-                    .join("")}
-                </div>
-              `
-              : ""
-          }
-          ${
             guide.lines.length
-              ? `<div class="guide-article">${guide.lines
-                  .map((line, index) => renderGuideLine(line, index))
-                  .join("")}</div>`
+              ? renderGuideArticle(guide)
               : !guide.images.length
                 ? `
                 <div class="guide-placeholder">
@@ -1741,6 +1898,27 @@ function renderGuideCard(guide) {
                 </div>
               `
                 : ""
+          }
+          ${
+            guide.images.length
+              ? `
+                <section class="guide-appendix">
+                  <header><small>REFERENCE</small><strong>原文资料图</strong><span>${guide.images.length} 张</span></header>
+                  <div class="guide-image-gallery">
+                    ${guide.images
+                      .map(
+                        (image) => `
+                          <a href="${escapeGuideText(image.src)}" target="_blank" rel="noopener">
+                            <img src="${escapeGuideText(image.src)}" alt="${escapeGuideText(image.alt)}" loading="lazy">
+                            <span>${escapeGuideText(image.alt)}</span>
+                          </a>
+                        `,
+                      )
+                      .join("")}
+                  </div>
+                </section>
+              `
+              : ""
           }
       </div>
     </details>
@@ -2291,6 +2469,16 @@ function handleClick(event) {
     renderCategoryFilters();
     renderGuides();
     document.querySelector(".guide-directory")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    return;
+  }
+
+  const collapseCardButton = event.target.closest("[data-guide-collapse-card]");
+  if (collapseCardButton) {
+    const card = collapseCardButton.closest(".guide-card");
+    if (card) {
+      card.open = false;
+      card.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
     return;
   }
 
