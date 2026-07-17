@@ -804,6 +804,16 @@ const checklistGroups = [
   },
 ];
 
+const checklistGroupMeta = {
+  DOCUMENTS: { icon: "证", note: "原件装进随身文件袋，复印件分开放，手机再留一份电子备份。" },
+  BEDDING: { icon: "寝", note: "床垫、床帘和大件收纳先确认宿舍尺寸与管理要求，再决定自带或到校购买。" },
+  "WASH & CLOTHES": { icon: "衣", note: "按第一周用量准备即可，洗护用品和换季衣物后续补充更省空间。" },
+  "DORM LIFE": { icon: "舍", note: "电器必须符合宿舍功率和消防规定，大件用品先与室友沟通。" },
+  MEDICINE: { icon: "药", note: "只带自己熟悉的常用药；处方药保留包装、说明和处方信息。" },
+  "MILITARY TRAINING": { icon: "训", note: "重点是防晒、补水和合脚鞋垫，军训统一用品以学院通知为准。" },
+  STUDY: { icon: "学", note: "电脑按专业需求购买，报到前不必为了“大学必备”一次买齐。" },
+};
+
 const quickGuideCategories = [
   "全部",
   "入学准备",
@@ -1415,6 +1425,16 @@ const quickGuides = [
 
 const guideSections = window.tyutFullGuide || [];
 const guideCategories = ["全部", ...guideSections.map((section) => section.title)];
+const guideSectionNotes = {
+  basics: "认识学校、校区与学院",
+  enrollment: "报到、军训与入学手续",
+  study: "选课、校园网与学习路径",
+  sports: "乐跑、体测与体育活动",
+  awards: "综测、奖助与组织发展",
+  "campus-life": "交通、宿舍与校园服务",
+  leisure: "食堂、周边与休闲去处",
+  graduation: "学分、学籍与毕业要求",
+};
 const guides = guideSections.flatMap((section) =>
   section.topics.map((topic) => ({
     ...topic,
@@ -1489,32 +1509,47 @@ function saveChecklist() {
 function renderChecklist() {
   const container = document.querySelector("[data-checklist]");
   container.innerHTML = checklistGroups
-    .map(
-      (group) => `
-        <article class="check-group reveal">
-          <header>
-            <span>${group.code}</span>
-            <h3>${group.title}</h3>
-          </header>
-          <ul>
-            ${group.items
-              .map(([id, label]) => {
-                const checked = completed.has(id);
-                return `
-                  <li class="check-item ${checked ? "is-checked" : ""}">
-                    <label>
-                      <input type="checkbox" data-check-id="${id}" ${checked ? "checked" : ""}>
-                      <span class="custom-check" aria-hidden="true"></span>
-                      <span>${label}</span>
-                    </label>
-                  </li>
-                `;
-              })
-              .join("")}
-          </ul>
-        </article>
-      `,
-    )
+    .map((group) => {
+      const meta = checklistGroupMeta[group.code] || { icon: "✓", note: "按个人需要准备。" };
+      const done = group.items.filter(([id]) => completed.has(id)).length;
+      const preview = group.items.slice(0, 2).map(([, label]) => label.replace(/（.*?）/g, "")).join("、");
+      return `
+        <details class="check-group reveal" data-check-group>
+          <summary>
+            <span class="check-group-icon">${meta.icon}</span>
+            <span class="check-group-copy">
+              <small>${group.code}</small>
+              <strong>${group.title}</strong>
+              <em>${preview}${group.items.length > 2 ? ` 等 ${group.items.length} 项` : ""}</em>
+            </span>
+            <span class="check-group-progress">
+              <b><i data-check-group-done>${done}</i> / ${group.items.length}</b>
+              <span><i data-check-group-bar style="width:${(done / group.items.length) * 100}%"></i></span>
+            </span>
+            <i class="check-group-toggle" aria-hidden="true"></i>
+          </summary>
+          <div class="check-group-body">
+            <p>${meta.note}</p>
+            <ul>
+              ${group.items
+                .map(([id, label]) => {
+                  const checked = completed.has(id);
+                  return `
+                    <li class="check-item ${checked ? "is-checked" : ""}">
+                      <label>
+                        <input type="checkbox" data-check-id="${id}" ${checked ? "checked" : ""}>
+                        <span class="custom-check" aria-hidden="true"></span>
+                        <span>${label}</span>
+                      </label>
+                    </li>
+                  `;
+                })
+                .join("")}
+            </ul>
+          </div>
+        </details>
+      `;
+    })
     .join("");
 
   updateProgress();
@@ -1538,18 +1573,36 @@ function updateProgress() {
   document.querySelectorAll("[data-progress-percent]").forEach((node) => {
     node.textContent = `${percent}%`;
   });
+  document.querySelectorAll("[data-check-group]").forEach((group) => {
+    const boxes = [...group.querySelectorAll("[data-check-id]")];
+    const groupDone = boxes.filter((box) => box.checked).length;
+    const doneNode = group.querySelector("[data-check-group-done]");
+    const bar = group.querySelector("[data-check-group-bar]");
+    if (doneNode) doneNode.textContent = String(groupDone);
+    if (bar) bar.style.width = `${boxes.length ? (groupDone / boxes.length) * 100 : 0}%`;
+    group.classList.toggle("is-complete", Boolean(boxes.length && groupDone === boxes.length));
+  });
 }
 
 function renderCategoryFilters() {
-  document.querySelector("[data-category-filters]").innerHTML = guideCategories
-    .map(
-      (category) => `
-        <button type="button" class="${category === activeCategory ? "is-active" : ""}" data-guide-category="${category}">
-          ${category}
-        </button>
-      `,
-    )
-    .join("");
+  const overview = document.querySelector("[data-guide-overview]");
+  if (overview) {
+    overview.innerHTML = guideSections
+      .map((section) => {
+        const complete = section.topics.filter((topic) => topic.status === "complete").length;
+        return `
+          <button type="button" class="${section.title === activeCategory ? "is-active" : ""}" data-guide-category="${section.title}">
+            <span>${section.number}</span>
+            <div><small>${section.english}</small><strong>${section.title}</strong><p>${guideSectionNotes[section.id] || "按章节查看校园攻略"}</p></div>
+            <em>${complete}/${section.topics.length} 篇</em>
+          </button>
+        `;
+      })
+      .join("");
+  }
+  document.querySelectorAll('[data-guide-category="全部"]').forEach((button) => {
+    button.classList.toggle("is-active", activeCategory === "全部");
+  });
 }
 
 function escapeGuideText(value) {
@@ -1570,10 +1623,10 @@ function formatGuideText(value) {
 
 function getGuideExcerpt(guide) {
   if (!guide.lines.length && guide.images.length) {
-    return `参考文档在这个栏目中收录了 ${guide.images.length} 张资料图，展开后可查看完整图片。`;
+    return `本篇收录 ${guide.images.length} 张资料图，点开后可查看完整图片。`;
   }
   if (!guide.lines.length) {
-    return "参考文档目前仅设置了这个栏目，尚未填写具体正文。网站保留原目录位置，后续有内容时可继续补充。";
+    return "该栏目目前尚未补充具体正文。";
   }
 
   const excerpt = guide.lines
@@ -1629,39 +1682,27 @@ function renderGuideLine(line, index) {
 function renderGuideCard(guide) {
   const outline = getGuideOutline(guide);
   const contentCount = guide.lines.length + guide.images.length;
-  const contentLabel = contentCount
-    ? `展开全部 ${contentCount} 项内容`
-    : "查看栏目说明";
 
   return `
-    <article class="guide-card reveal" id="guide-${guide.id}">
-      <div class="guide-number">
-        <span>${escapeGuideText(guide.code)}</span>
-        <small>总目录 ${String(guide.order).padStart(2, "0")} / ${String(guides.length).padStart(2, "0")}</small>
-      </div>
+    <details class="guide-card reveal" id="guide-${guide.id}">
+      <summary class="guide-card-summary">
+        <span class="guide-number">${escapeGuideText(guide.code)}</span>
+        <span class="guide-card-copy">
+          <small>${escapeGuideText(guide.category)} · ${contentCount ? `${guide.lines.length} 条内容${guide.images.length ? ` / ${guide.images.length} 图` : ""}` : "待补充"}</small>
+          <strong>${escapeGuideText(guide.title)}</strong>
+          <em>${formatGuideText(getGuideExcerpt(guide))}</em>
+        </span>
+        <span class="guide-card-state ${guide.status === "complete" ? "is-complete" : "is-placeholder"}">
+          ${guide.status === "complete" ? "可阅读" : "待补充"}
+        </span>
+        <i class="guide-card-toggle" aria-hidden="true"></i>
+      </summary>
       <div class="guide-card-body">
-        <div class="guide-meta">
-          <span class="guide-category">${escapeGuideText(guide.category)}</span>
-          <span class="guide-length">
-            ${
-              contentCount
-                ? `收录 ${guide.lines.length} 条文字${guide.images.length ? ` · ${guide.images.length} 张图` : ""}`
-                : "原文栏目暂未填写"
-            }
-          </span>
-        </div>
-        <h3>${escapeGuideText(guide.title)}</h3>
-        <p class="guide-summary">${formatGuideText(getGuideExcerpt(guide))}</p>
-        <div class="guide-status-row">
-          <span class="${guide.status === "complete" ? "is-complete" : "is-placeholder"}">
-            ${guide.status === "complete" ? "正文已收录" : "保留原目录"}
-          </span>
-          ${
-            guide.needsVerification
-              ? '<span class="needs-check">含时效信息，办理前请核对官方通知</span>'
-              : ""
-          }
-        </div>
+        ${
+          guide.needsVerification
+            ? '<p class="guide-verify-note">含日期、金额或规则等时效信息，办理前请核对学校与学院最新通知。</p>'
+            : ""
+        }
         ${
           outline.length
             ? `<div class="guide-outline" aria-label="本篇目录">${outline
@@ -1669,8 +1710,6 @@ function renderGuideCard(guide) {
                 .join("")}</div>`
             : ""
         }
-        <details class="guide-detail">
-          <summary><span>${contentLabel}</span><i aria-hidden="true"></i></summary>
           ${
             guide.images.length
               ? `
@@ -1697,15 +1736,14 @@ function renderGuideCard(guide) {
               : !guide.images.length
                 ? `
                 <div class="guide-placeholder">
-                  <strong>该栏目在参考文档中暂无正文</strong>
-                  <p>目录已按原文完整保留。后续补充时可直接归入「${escapeGuideText(guide.title)}」，不会打乱现有阅读顺序。</p>
+                  <strong>该栏目暂未补充正文</strong>
+                  <p>后续内容更新后会继续归入「${escapeGuideText(guide.title)}」。</p>
                 </div>
               `
                 : ""
           }
-        </details>
       </div>
-    </article>
+    </details>
   `;
 }
 
@@ -1733,21 +1771,23 @@ function renderGuides() {
         (guide) => guide.sectionId === section.id && visibleIds.has(guide.id),
       );
       if (!sectionGuides.length) return "";
+      const shouldOpen = Boolean(query || activeCategory !== "全部");
 
       return `
-        <section class="guide-chapter">
-          <header class="guide-chapter-header reveal">
+        <details class="guide-chapter" ${shouldOpen ? "open" : ""}>
+          <summary class="guide-chapter-header reveal">
             <span>${section.number}</span>
             <div>
               <small>${section.english}</small>
               <h3>${section.title}</h3>
             </div>
             <p>${sectionGuides.length} / ${section.topics.length} 个栏目</p>
-          </header>
+            <i aria-hidden="true"></i>
+          </summary>
           <div class="guide-chapter-list">
             ${sectionGuides.map(renderGuideCard).join("")}
           </div>
-        </section>
+        </details>
       `;
     })
     .join("");
@@ -2237,11 +2277,20 @@ async function sharePage() {
 function handleClick(event) {
   const expandButton = event.target.closest("[data-guide-expand]");
   if (expandButton) {
-    const shouldOpen = expandButton.dataset.guideExpand === "open";
-    document.querySelectorAll("[data-guide-list] .guide-detail").forEach((detail) => {
-      detail.open = shouldOpen;
+    document.querySelectorAll("[data-guide-list] .guide-card, [data-guide-list] .guide-chapter").forEach((detail) => {
+      detail.open = false;
     });
-    showToast(shouldOpen ? "已展开当前结果" : "已收起全部攻略");
+    showToast("已收起全部攻略");
+    return;
+  }
+
+  if (event.target.closest("[data-guide-reset]")) {
+    activeCategory = "全部";
+    const search = document.querySelector("[data-guide-search]");
+    if (search) search.value = "";
+    renderCategoryFilters();
+    renderGuides();
+    document.querySelector(".guide-directory")?.scrollIntoView({ behavior: "smooth", block: "start" });
     return;
   }
 
@@ -2250,6 +2299,7 @@ function handleClick(event) {
     activeCategory = categoryButton.dataset.guideCategory;
     renderCategoryFilters();
     renderGuides();
+    document.querySelector("[data-guide-list]")?.scrollIntoView({ behavior: "smooth", block: "start" });
     return;
   }
 

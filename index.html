@@ -308,10 +308,9 @@
           <div class="checklist-intro reveal">
             <div class="section-heading section-heading-light">
               <p class="eyebrow">PACKING CHECKLIST</p>
-              <h2>把行李一项项勾掉</h2>
+              <h2>先分装，再出发</h2>
               <p>
-                已按《新生开学需要带什么？》逐项整理。勾选会自动保存在当前浏览器；
-                证件原件建议随身携带，不要放进托运行李。
+                七类物品按用途收好，点开一类再逐项确认。勾选进度会自动保存在当前浏览器。
               </p>
             </div>
             <div class="progress-orbit" aria-label="行李准备进度">
@@ -322,8 +321,22 @@
               <div><strong data-progress-percent>0%</strong><span>已准备</span></div>
             </div>
           </div>
+          <div class="packing-principles reveal" aria-label="行李整理原则">
+            <article>
+              <span>01</span>
+              <div><strong>随身包</strong><p>证件原件、录取通知书和贵重物品不托运</p></div>
+            </article>
+            <article>
+              <span>02</span>
+              <div><strong>到校再买</strong><p>床铺尺寸和宿舍规则确认后再补大件</p></div>
+            </article>
+            <article>
+              <span>03</span>
+              <div><strong>轻装优先</strong><p>先带第一周必需品，消耗品不必一次囤齐</p></div>
+            </article>
+          </div>
           <div class="checklist-toolbar reveal">
-            <p><span>●</span> 文档中提到的床品套装与价格属于参考信息，购买前请以学校当年正式通知为准</p>
+            <p><span>●</span> 点击分类查看细项，已完成的分类会自动更新进度</p>
             <button type="button" data-clear-checklist>清空勾选</button>
           </div>
           <div class="checklist-grid" data-checklist></div>
@@ -331,28 +344,17 @@
       </section>
 
       <section class="guide-section shell section-space" id="guide">
-        <div class="section-heading section-heading-split reveal">
-          <div>
-            <p class="eyebrow">FRESHMAN KNOWLEDGE BASE</p>
-            <h2>太理新生攻略库</h2>
-          </div>
-          <p>
-            按参考文档原目录完整整理为 8 个章节、67 个栏目，已收录其中现有的全部正文与资料图。
-            先按章节阅读，再用搜索定位具体事项。
-          </p>
+        <div class="section-heading reveal">
+          <p class="eyebrow">FRESHMAN KNOWLEDGE BASE</p>
+          <h2>太理新生攻略库</h2>
         </div>
-        <aside class="guide-source reveal">
-          <div>
-            <span>内容说明</span>
-            <p>
-              本库按《新生入学指南大全》的现有目录、正文和资料图完整整理，装饰性 Emoji 已删除；原文尚未填写的栏目也保留位置。
-              文档含往届经验和时效信息，日期、金额、名额、开放时间及规则须以学校和学院当年正式通知为准。
-            </p>
-          </div>
-          <a href="https://docs.qq.com/aio/DVHZ3bU1yTG5Jb1hM" target="_blank" rel="noopener noreferrer">
-            查看参考文档
-          </a>
-        </aside>
+        <div class="guide-directory reveal">
+          <header>
+            <div><span>CHAPTER DIRECTORY</span><strong>先选章节，再看具体问题</strong></div>
+            <button type="button" data-guide-category="全部">全部章节</button>
+          </header>
+          <div class="guide-directory-grid" data-guide-overview></div>
+        </div>
         <div class="guide-tools reveal">
           <label class="search-box">
             <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -362,10 +364,9 @@
             <input type="search" placeholder="搜索校园卡、选课、奖学金、食堂……" data-guide-search />
           </label>
           <span class="result-count">找到 <strong data-result-count>0</strong> 篇</span>
-          <div class="category-filters" data-category-filters></div>
           <div class="guide-expand-actions">
-            <button type="button" data-guide-expand="open">展开当前结果</button>
-            <button type="button" data-guide-expand="close">全部收起</button>
+            <button type="button" data-guide-reset>回到章节总览</button>
+            <button type="button" data-guide-expand="close">收起所有内容</button>
           </div>
         </div>
         <div class="guide-list" data-guide-list></div>
