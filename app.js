@@ -8,7 +8,6 @@ const campuses = {
       "榆次火车站可乘 5 路到“太原理工大学东门”；太原南站可参考 902、903、903 支线、909 路。公交线路可能调整，出发当天请再用地图软件核对。",
     tags: ["大学城", "主教学区", "宿舍集中"],
     plan: "./assets/mingxiang-plan.jpg",
-    "3d": "./assets/mingxiang-3d.jpg",
     nav: "https://uri.amap.com/search?keyword=太原理工大学明向校区",
     defaultPoint: "mx-admin",
     points: [
@@ -30,7 +29,7 @@ const campuses = {
         id: "mx-stadium",
         name: "东侧运动场",
         category: "运动",
-        description: "位于校区东侧，平面图和立体图上都很容易识别，可作为寻找东区楼宇的参照。",
+        description: "位于校区东侧，平面图上很容易识别，可作为寻找东区楼宇的参照。",
         coords: { plan: [88, 34], "3d": [80, 43] },
       },
       {
@@ -65,7 +64,6 @@ const campuses = {
       "可参考 1、809、38、822、868、855 路等公交，在“太原理工大学”站附近下车。具体报到校门与接待点以学院通知为准。",
     tags: ["太原市区", "历史校区", "交通便利"],
     plan: "./assets/yingxi-plan.jpg",
-    "3d": "./assets/yingxi-3d.jpg",
     nav: "https://uri.amap.com/search?keyword=太原理工大学迎西校区",
     defaultPoint: "yx-library",
     points: [
@@ -129,7 +127,6 @@ const campuses = {
       "可参考 824、875、823 路，在“千峰南路后王街口”站附近下车。迎西与虎峪距离较近，但报到入口和学院位置不要混淆。",
     tags: ["矿业特色", "太原市区", "毗邻迎西"],
     plan: "./assets/huyu-plan.jpg",
-    "3d": "./assets/huyu-3d.jpg",
     nav: "https://uri.amap.com/search?keyword=太原理工大学虎峪校区",
     defaultPoint: "hy-library",
     points: [
@@ -392,7 +389,7 @@ const extraCampusPoints = {
       id: "hy-training",
       name: "训练馆",
       category: "运动",
-      description: "位于虎峪校区中部，立体图中为较醒目的蓝色多边形场馆。",
+      description: "位于虎峪校区中部，是平面图中较醒目的运动场馆。",
       coords: { plan: [56, 65], "3d": [49, 42] },
     },
     {
@@ -709,50 +706,100 @@ function getMapPointPhotos(point) {
 const checklistGroups = [
   {
     code: "DOCUMENTS",
-    title: "证件资料",
+    title: "证件材料",
     items: [
       ["notice", "录取通知书"],
-      ["id-card", "身份证原件"],
-      ["copies", "证件复印件（按通知要求）"],
-      ["photos", "近期证件照与电子版"],
-      ["bank-card", "本人银行卡与少量现金"],
-      ["documents-folder", "透明文件袋 / 资料夹"],
+      ["exam-admission", "高考准考证（报到时可能需要）"],
+      ["id-card", "身份证原件及复印件"],
+      ["household-copy", "户口本本人页复印件（按需）"],
+      ["league-relation", "团组织关系证明（团员证、介绍信等）"],
+      ["student-file", "学籍档案（按学校要求邮寄或自带）"],
+      ["photos", "一寸、二寸白/蓝/红底免冠照片若干"],
+      ["loan-receipt", "生源地助学贷款回执单（如适用）"],
+      ["hardship-proof", "家庭经济困难证明材料（如适用）"],
+    ],
+  },
+  {
+    code: "BEDDING",
+    title: "床上用品",
+    items: [
+      ["mattress", "床垫、褥子（先确认床铺尺寸）"],
+      ["bed-linen", "床单、被套、枕套各两套"],
+      ["pillow", "枕头"],
+      ["quilts", "夏凉被和被子"],
+      ["wash-basin", "洗脸盆"],
+      ["thermos", "暖壶"],
+      ["power-strip", "约 3 米的合规排插（先确认宿舍规定）"],
+    ],
+  },
+  {
+    code: "WASH & CLOTHES",
+    title: "洗漱与衣物",
+    items: [
+      ["oral-care", "牙刷、牙膏、牙杯"],
+      ["face-care", "毛巾、洗面奶、洗脸巾"],
+      ["bath-care", "沐浴露、洗发水、护发素"],
+      ["laundry", "洗衣液、洗衣盆、洗澡篮"],
+      ["skin-care", "护肤品、化妆品、小镜子、防撞贴等（按需）"],
+      ["seasonal-clothes", "当季衣物及少量厚衣服"],
+      ["personal-clothes", "内衣、袜子、鞋子等"],
     ],
   },
   {
     code: "DORM LIFE",
-    title: "宿舍生活",
+    title: "宿舍用品与电器",
     items: [
-      ["bedding", "床品（先确认学校统一安排）"],
-      ["slippers", "拖鞋与洗漱用品"],
-      ["hanger", "衣架与小夹子"],
-      ["lock", "小锁 / 钥匙收纳"],
-      ["medicine", "常用药与创可贴"],
-      ["earplugs", "耳塞 / 眼罩"],
+      ["cup", "水杯"],
+      ["umbrella", "雨伞"],
+      ["lock", "小锁"],
+      ["tableware", "饭盒和碗"],
+      ["storage", "收纳箱、衣架、粘钩"],
+      ["cleaning-kit", "抹布、拖鞋、指甲剪工具包"],
+      ["paper-bin", "卫生纸、卫生巾、垃圾桶（按需）"],
+      ["wet-wipes-bags", "湿巾、垃圾袋"],
+      ["sleep-tools", "耳塞、眼罩"],
+      ["scissors", "剪刀等小工具"],
+      ["phone-power", "手机、充电器、充电宝"],
+      ["headphones", "耳机"],
+      ["desk-lamp", "台灯"],
+      ["small-fan", "充电小风扇（按宿舍规定使用）"],
+    ],
+  },
+  {
+    code: "MEDICINE",
+    title: "医药用品",
+    items: [
+      ["cold-medicine", "感冒药、退烧药"],
+      ["stomach-medicine", "肠胃药"],
+      ["heatstroke-medicine", "防中暑药"],
+      ["first-aid", "创可贴、碘伏棉签"],
+      ["sports-spray", "运动损伤喷雾（按个人需要）"],
+      ["personal-medicine", "个人常用处方药及用药说明"],
+    ],
+  },
+  {
+    code: "MILITARY TRAINING",
+    title: "军训专题",
+    items: [
+      ["sunscreen", "防晒霜、晒后修复产品"],
+      ["large-bottle", "大容量水杯"],
+      ["sport-shoes", "舒适运动鞋及鞋垫"],
+      ["mosquito-cooling", "花露水、清凉油"],
+      ["belt", "腰带（军训裤偏大时备用）"],
+      ["training-wipes", "小包湿巾、冰凉贴"],
+      ["throat-heat", "润喉糖、藿香正气水"],
+      ["glasses-bands", "眼镜腿防滑垫、小皮筋（按需）"],
     ],
   },
   {
     code: "STUDY",
-    title: "学习数码",
+    title: "学习用品",
     items: [
-      ["phone", "手机、充电器与充电宝"],
-      ["computer", "电脑（按专业需求决定）"],
-      ["power-strip", "合规插线板"],
-      ["stationery", "笔、本子与文件夹"],
-      ["headphones", "耳机"],
-      ["backup", "重要文件云端备份"],
-    ],
-  },
-  {
-    code: "ON THE ROAD",
-    title: "路上随身",
-    items: [
-      ["route", "下载离线地图 / 保存路线"],
-      ["campus", "确认校区、学院和校门"],
-      ["contact", "保存辅导员官方联系方式"],
-      ["water", "水与简单食物"],
-      ["weather", "查看太原 / 晋中天气"],
-      ["label", "行李写姓名与联系电话"],
+      ["computer", "笔记本电脑（按专业要求和个人需求）"],
+      ["pens", "笔、笔记本、便签纸"],
+      ["usb-drive", "U 盘"],
+      ["file-folder", "文件夹"],
+      ["glue-stick", "胶棒等文具"],
     ],
   },
 ];
@@ -1413,7 +1460,6 @@ const faqs = [
 
 const storageKey = "tyut-2026-checklist";
 let activeCampus = "mingxiang";
-let activeMapMode = "3d";
 let activeCategory = "全部";
 let completed = new Set(loadChecklist());
 let activeMapCategory = "全部";
@@ -1814,7 +1860,7 @@ function updateMapPointDetail() {
   photoGallery.innerHTML = photos
     .map((photo) => {
       const note = photo.exact
-        ? "图片与当前地点对应，可结合立体图辨认建筑外观。"
+        ? "图片与当前地点对应，可结合平面图和实景照片辨认建筑。"
         : `用于判断“${point.name}”所在校区的环境与方位，不代表该设施建筑本体。`;
       return `
         <article class="map-photo-card">
@@ -1845,7 +1891,7 @@ function renderMapPoints() {
   layer.innerHTML = visible.length
     ? visible
         .map((point) => {
-          const [x, y] = point.coords[activeMapMode] || point.coords.plan;
+          const [x, y] = point.coords.plan;
           const active = point.id === activeMapPointId;
           const icon = getMapPointIcon(point);
           return `
@@ -1976,7 +2022,7 @@ function selectMapPoint(pointId, { focus = true } = {}) {
 
   if (!focus || !mapView) return;
   const { viewport } = getMapElements();
-  const [xPercent, yPercent] = point.coords[activeMapMode] || point.coords.plan;
+  const [xPercent, yPercent] = point.coords.plan;
   mapView.scale = Math.max(mapView.scale, 1.55);
   const absoluteScale = mapView.fitScale * mapView.scale;
   mapView.x =
@@ -1992,13 +2038,9 @@ function loadActiveMapImage() {
   const campus = campuses[activeCampus];
   const { panel, image } = getMapElements();
   if (!image) return;
-  panel?.classList.toggle("is-map-plan", activeMapMode === "plan");
-  panel?.classList.toggle("is-map-3d", activeMapMode === "3d");
+  panel?.classList.add("is-map-plan");
   const layerLabel = document.querySelector("[data-map-layer-label]");
-  if (layerLabel) {
-    layerLabel.textContent =
-      activeMapMode === "3d" ? "立体设施标注层" : "平面精确标注层";
-  }
+  if (layerLabel) layerLabel.textContent = "平面设施标注层";
   image.classList.add("is-switching");
   let completedLoad = false;
   const finish = () => {
@@ -2009,8 +2051,8 @@ function loadActiveMapImage() {
     renderMapPoints();
   };
   image.onload = finish;
-  image.src = campus[activeMapMode];
-  image.alt = `${campus.name}${activeMapMode === "plan" ? "平面图" : "立体图"}`;
+  image.src = campus.plan;
+  image.alt = `${campus.name}平面图`;
   if (image.complete) window.setTimeout(finish, 0);
 }
 
@@ -2042,29 +2084,20 @@ function switchCampus(id) {
   loadActiveMapImage();
 }
 
-function switchMapMode(mode) {
-  if (!["plan", "3d"].includes(mode)) return;
-  activeMapMode = mode;
-  document.querySelectorAll("[data-map-mode]").forEach((button) => {
-    button.classList.toggle("is-active", button.dataset.mapMode === mode);
-  });
-  loadActiveMapImage();
-}
-
 function openMapDialog() {
   const campus = campuses[activeCampus];
   const dialog = document.querySelector("[data-map-dialog]");
   const image = document.querySelector("[data-dialog-image]");
-  image.src = campus[activeMapMode];
-  image.alt = `${campus.name}${activeMapMode === "plan" ? "平面图" : "立体图"}`;
+  image.src = campus.plan;
+  image.alt = `${campus.name}平面图`;
   document.querySelector("[data-dialog-caption]").textContent =
-    `${campus.name} · ${activeMapMode === "plan" ? "平面图" : "立体图"}（可滚动查看原图）`;
+    `${campus.name} · 平面图（可滚动查看原图）`;
 
   if (typeof dialog.showModal === "function") {
     dialog.showModal();
     document.body.classList.add("is-dialog-open");
   } else {
-    window.open(campus[activeMapMode], "_blank", "noopener");
+    window.open(campus.plan, "_blank", "noopener");
   }
 }
 
@@ -2223,12 +2256,6 @@ function handleClick(event) {
   const campusButton = event.target.closest("[data-campus]");
   if (campusButton) {
     switchCampus(campusButton.dataset.campus);
-    return;
-  }
-
-  const modeButton = event.target.closest("[data-map-mode]");
-  if (modeButton) {
-    switchMapMode(modeButton.dataset.mapMode);
     return;
   }
 

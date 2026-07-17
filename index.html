@@ -52,30 +52,26 @@
     <main id="main">
       <section class="hero shell" id="top">
         <div class="hero-copy reveal">
-          <p class="eyebrow">CAMPUS FIELD GUIDE · 2026</p>
-          <h1>
-            <span>太原理工大学</span>
-            新生实地<br />
-            <em>手册</em>
-          </h1>
           <p class="hero-lead">
             从收到通知书，到拖着行李走进宿舍——把第一次到太理最容易慌的事，
             整理成一份能搜索、能勾选、能随手打开的校园行动指南。
           </p>
+          <aside class="hero-scam-alert" id="freshman-alert">
+            <span>在一切开始前</span>
+            <p>
+              学长先给学弟学妹提个醒：咱们所有的线下报到流程不存在任何收费行为。
+              凡是涉及报到过程中的收费，一定要慎重，99.9999999% 都是骗子！
+              不要随意把身份证交给别人，也不要向陌生人付款。咱们学校水电免费。
+            </p>
+          </aside>
           <div class="hero-actions">
             <a class="button button-primary" href="#checklist">开始收拾行李</a>
             <a class="button button-ghost" href="#campus">先认清校区</a>
           </div>
-          <a class="mini-ticket" href="#official-notice">
-            <span>重要</span>
-            <strong>报到日期看哪里？</strong>
-            <i>→</i>
-          </a>
-          <ul class="hero-stats" aria-label="学校信息">
-            <li><strong>1902</strong><span>办学肇始</span></li>
-            <li><strong>3</strong><span>主要校区</span></li>
-            <li><strong>10112</strong><span>学校代码</span></li>
-          </ul>
+          <div class="hero-priority-links" aria-label="新生重点入口">
+            <a href="#guide"><span>01</span><strong>新生必看秘诀</strong><i>→</i></a>
+            <a href="#freshman-alert"><span>02</span><strong>新生反诈</strong><i>→</i></a>
+          </div>
         </div>
 
         <div class="hero-visual reveal reveal-delay">
@@ -183,8 +179,20 @@
             </div>
             <p>
               录取通知书上的报到校区最权威。下方地图来自太原理工大学官网，
-              点击可放大；校园楼宇与道路如有调整，以现场标识为准。
+              可搜索、缩放和查看设施实景；也可扫描二维码打开校园导览。
+              校园楼宇与道路如有调整，以现场标识为准。
             </p>
+          </div>
+
+          <div class="campus-qr-card reveal">
+            <div class="campus-qr-frame">
+              <img src="./assets/campus-map-qr-blue.jpg" alt="太原理工大学校园导览二维码" />
+            </div>
+            <div>
+              <span>DIGITAL CAMPUS MAP</span>
+              <h3>扫码打开校园导览</h3>
+              <p>长按识别或使用微信扫码，在手机上查看校园地图。出发前仍请先核对录取通知书上的报到校区。</p>
+            </div>
           </div>
 
           <div class="campus-tabs reveal" role="tablist" aria-label="选择校区">
@@ -202,10 +210,6 @@
           <div class="campus-viewer reveal">
             <div class="map-panel">
               <div class="map-toolbar">
-                <div class="map-mode-switch" role="group" aria-label="选择地图样式">
-                  <button type="button" data-map-mode="plan">平面图</button>
-                  <button class="is-active" type="button" data-map-mode="3d">立体图</button>
-                </div>
                 <p class="map-gesture-hint">拖动浏览 · 滚轮缩放 · 点击标记查看地点</p>
                 <button class="map-enlarge" type="button" data-map-enlarge>查看原图 ↗</button>
               </div>
@@ -234,14 +238,14 @@
                   <div class="map-canvas" data-map-canvas>
                     <img
                       data-campus-map
-                      src="./assets/mingxiang-3d.jpg"
-                      alt="明向校区立体图"
+                      src="./assets/mingxiang-plan.jpg"
+                      alt="明向校区平面图"
                       draggable="false"
                     />
                     <div class="map-point-layer" data-map-points role="radiogroup" aria-label="校园地点"></div>
                   </div>
                 </div>
-                <div class="map-layer-badge"><i></i><span data-map-layer-label>立体设施标注层</span></div>
+                <div class="map-layer-badge"><i></i><span data-map-layer-label>平面设施标注层</span></div>
                 <button class="map-touch-toggle" type="button" data-map-touch-toggle aria-pressed="false">开启地图操作</button>
                 <div class="map-zoom-controls" role="group" aria-label="地图缩放控制">
                   <button type="button" data-map-zoom-out aria-label="缩小地图">−</button>
@@ -305,7 +309,10 @@
             <div class="section-heading section-heading-light">
               <p class="eyebrow">PACKING CHECKLIST</p>
               <h2>把行李一项项勾掉</h2>
-              <p>勾选会自动保存在当前浏览器。证件原件建议随身携带，不要放进托运行李。</p>
+              <p>
+                已按《新生开学需要带什么？》逐项整理。勾选会自动保存在当前浏览器；
+                证件原件建议随身携带，不要放进托运行李。
+              </p>
             </div>
             <div class="progress-orbit" aria-label="行李准备进度">
               <svg viewBox="0 0 120 120" aria-hidden="true">
@@ -316,7 +323,7 @@
             </div>
           </div>
           <div class="checklist-toolbar reveal">
-            <p><span>●</span> 到校后再买的东西别急着塞满行李箱</p>
+            <p><span>●</span> 文档中提到的床品套装与价格属于参考信息，购买前请以学校当年正式通知为准</p>
             <button type="button" data-clear-checklist>清空勾选</button>
           </div>
           <div class="checklist-grid" data-checklist></div>
@@ -333,22 +340,6 @@
             按参考文档原目录完整整理为 8 个章节、67 个栏目，已收录其中现有的全部正文与资料图。
             先按章节阅读，再用搜索定位具体事项。
           </p>
-        </div>
-        <div class="guide-overview reveal">
-          <div class="guide-overview-copy">
-            <span>完整目录</span>
-            <strong>67 个栏目按原文顺序逐项展开</strong>
-          </div>
-          <ol class="guide-sequence" aria-label="攻略阅读顺序">
-            <li><b>01</b><span>基础常识</span></li>
-            <li><b>02</b><span>入学须知</span></li>
-            <li><b>03</b><span>学习指导</span></li>
-            <li><b>04</b><span>体育运动</span></li>
-            <li><b>05</b><span>奖助学金</span></li>
-            <li><b>06</b><span>校园生活</span></li>
-            <li><b>07</b><span>吃喝娱乐</span></li>
-            <li><b>08</b><span>毕业须知</span></li>
-          </ol>
         </div>
         <aside class="guide-source reveal">
           <div>
