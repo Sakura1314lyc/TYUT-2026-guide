@@ -39,6 +39,20 @@ body {
   background-size: 42px 42px;
 }
 
+.poster::before {
+  position: absolute;
+  top: 552px;
+  right: 48px;
+  left: 48px;
+  z-index: 2;
+  height: 590px;
+  content: "";
+  background:
+    linear-gradient(115deg, rgba(18, 61, 106, 0.98) 0 66%, rgba(14, 47, 82, 0.95) 66% 100%);
+  clip-path: polygon(0 2%, 100% 0, 98.6% 95%, 1.8% 100%);
+  box-shadow: 0 28px 70px rgba(18, 43, 69, 0.2);
+}
+
 .poster::after {
   position: absolute;
   inset: 22px;
@@ -77,7 +91,7 @@ body {
   z-index: 2;
   width: 790px;
   height: 1260px;
-  opacity: 0.45;
+  opacity: 0.34;
   border: 43px solid var(--red);
   border-top-color: transparent;
   border-left-color: transparent;
@@ -251,12 +265,12 @@ body {
   top: 598px;
   left: 96px;
   z-index: 8;
-  width: 860px;
+  width: 870px;
   padding: 24px 30px 21px;
-  background: rgba(255, 252, 245, 0.84);
-  border: 1px solid rgba(18, 61, 106, 0.2);
+  background: rgba(255, 253, 248, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.52);
   border-left: 8px solid var(--red);
-  box-shadow: 0 20px 55px rgba(42, 35, 28, 0.09);
+  box-shadow: 0 24px 62px rgba(4, 22, 42, 0.25);
 }
 
 .cover-directory > header {
@@ -328,16 +342,80 @@ body {
   letter-spacing: 1px;
 }
 
+.team-feature {
+  position: absolute;
+  top: 604px;
+  right: 92px;
+  z-index: 9;
+  width: 500px;
+  padding: 16px;
+  margin: 0;
+  color: #fff;
+  background: #0d2f53;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 25px 60px rgba(4, 20, 37, 0.32);
+  transform: rotate(1.1deg);
+}
+
+.team-feature header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 1px 4px 13px;
+}
+
+.team-feature header span {
+  color: #ffb7c2;
+  font-family: Georgia, serif;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 3px;
+}
+
+.team-feature header b {
+  font-size: 19px;
+  letter-spacing: 3px;
+}
+
+.team-feature img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1600 / 941;
+  object-fit: cover;
+  border: 5px solid rgba(255, 255, 255, 0.92);
+}
+
+.team-feature figcaption {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 16px 4px 3px;
+}
+
+.team-feature figcaption strong {
+  font-family: "STKaiti", "KaiTi", serif;
+  font-size: 26px;
+}
+
+.team-feature figcaption span {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 13px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
 .campus-scene {
   position: absolute;
-  top: 1040px;
+  top: 1090px;
   left: 42px;
   z-index: 4;
   width: 1516px;
   height: 750px;
   overflow: hidden;
   background: #d8d0c3;
-  clip-path: polygon(0 7%, 100% 0, 98% 91%, 4% 100%);
+  clip-path: polygon(0 4%, 100% 0, 98% 94%, 3% 100%);
   filter: drop-shadow(0 28px 36px rgba(47, 36, 27, 0.18));
 }
 
