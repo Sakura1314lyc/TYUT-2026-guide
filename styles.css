@@ -5427,82 +5427,6 @@ p {
 
 /* 2026 handbook editorial sections */
 
-.hero-manual-directory {
-  max-width: 690px;
-  padding: 15px;
-  margin-top: 20px;
-  background: rgba(255, 253, 248, 0.86);
-  border: 1px solid rgba(18, 61, 106, 0.18);
-  border-radius: 18px;
-  box-shadow: 0 16px 38px rgba(23, 31, 39, 0.08);
-}
-
-.hero-manual-directory > header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  padding: 3px 4px 13px;
-  border-bottom: 1px solid rgba(18, 61, 106, 0.12);
-}
-
-.hero-manual-directory > header span {
-  color: var(--tyut-red);
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 0.62rem;
-  font-weight: 900;
-  letter-spacing: 0.12em;
-}
-
-.hero-manual-directory > header strong {
-  color: var(--tyut-blue);
-  font-size: 0.78rem;
-}
-
-.hero-manual-directory > div {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1px 20px;
-  padding-top: 6px;
-}
-
-.hero-manual-directory a {
-  display: grid;
-  min-height: 45px;
-  grid-template-columns: 29px minmax(0, 1fr) auto;
-  gap: 9px;
-  align-items: center;
-  padding: 7px 5px;
-  color: var(--tyut-blue);
-  border-bottom: 1px dashed rgba(18, 61, 106, 0.12);
-  transition: color 160ms ease, transform 160ms ease;
-}
-
-.hero-manual-directory a:nth-last-child(-n + 2) {
-  border-bottom-color: transparent;
-}
-
-.hero-manual-directory a:hover {
-  color: var(--tyut-red);
-  transform: translateX(3px);
-}
-
-.hero-manual-directory a span,
-.hero-manual-directory a i {
-  color: var(--tyut-red);
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 0.65rem;
-  font-style: normal;
-  font-weight: 900;
-}
-
-.hero-manual-directory a strong {
-  overflow: hidden;
-  font-size: 0.78rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
 .team-section {
   position: relative;
   overflow: hidden;
@@ -6012,46 +5936,6 @@ p {
 }
 
 @media screen and (max-width: 640px) {
-  .hero-manual-directory {
-    padding: 11px;
-    margin-top: 16px;
-    border-radius: 14px;
-  }
-
-  .hero-manual-directory > header {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 2px;
-    padding: 3px 3px 10px;
-  }
-
-  .hero-manual-directory > header strong {
-    font-size: 0.72rem;
-  }
-
-  .hero-manual-directory > div {
-    gap: 0 10px;
-  }
-
-  .hero-manual-directory a {
-    min-height: 43px;
-    grid-template-columns: 23px minmax(0, 1fr);
-    gap: 5px;
-    padding: 5px 2px;
-  }
-
-  .hero-manual-directory a i {
-    display: none;
-  }
-
-  .hero-manual-directory a strong {
-    font-size: 0.68rem;
-  }
-
-  .hero-manual-directory a:nth-last-child(-n + 2) {
-    border-bottom-color: transparent;
-  }
-
   .team-section::before {
     width: 70%;
   }
