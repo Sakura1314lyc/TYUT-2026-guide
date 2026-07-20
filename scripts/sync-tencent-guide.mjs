@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import vm from "node:vm";
+import { execFileSync } from "node:child_process";
 import { createRequire } from "node:module";
 
 const require = createRequire(import.meta.url);
@@ -34,7 +35,11 @@ function normalize(value) {
 function loadExistingGuide() {
   const context = { window: {} };
   vm.createContext(context);
-  vm.runInContext(fs.readFileSync(DATA_PATH, "utf8"), context);
+  const source =
+    process.env.TYUT_SYNC_BASELINE === "git-head"
+      ? execFileSync("git", ["show", "HEAD:guide-data.js"], { encoding: "utf8" })
+      : fs.readFileSync(DATA_PATH, "utf8");
+  vm.runInContext(source, context);
   return context.window.tyutFullGuide;
 }
 
@@ -62,7 +67,9 @@ async function readPageData(page, id) {
   const node = page.locator(`[data-block-id="${id}"] .sc-tree-node`).first();
   if (!(await node.count())) return { lines: [], children: [] };
   await node.click({ force: true });
-  await page.waitForTimeout(420);
+  // Tencent Docs fills table cells and list blocks shortly after the page shell.
+  // Waiting a little longer prevents a partial sync when a page contains tables.
+  await page.waitForTimeout(850);
   return page.evaluate(() => ({
     lines: [...document.querySelectorAll(".sc-block-wrapper")]
       .map((block) => {
@@ -70,7 +77,15 @@ async function readPageData(page, id) {
         if (!text) return null;
         if (block.classList.contains("sc-block-header1")) return { type: "header1", text };
         if (block.classList.contains("sc-block-header2")) return { type: "header2", text };
-        if (block.classList.contains("sc-block-text")) return { type: "text", text };
+        if (
+          block.classList.contains("sc-block-text") ||
+          block.classList.contains("sc-block-numbered_list") ||
+          block.classList.contains("sc-block-bulleted_list") ||
+          block.classList.contains("sc-block-todo") ||
+          block.classList.contains("sc-block-toggle")
+        ) {
+          return { type: "text", text };
+        }
         return null;
       })
       .filter(Boolean),
@@ -128,11 +143,22 @@ async function main() {
       }
       topic.sourceTitle = normalize(row.title);
 
+      const previousLines = topic.lines;
       const lines = await readPageTree(page, topic.id);
-
-      topic.lines = lines
+      const normalizedLines = lines
         .map((line) => ({ ...line, text: normalize(line.text) }))
         .filter((line) => line.text && !/^[●•]$/.test(line.text));
+
+      const suspiciouslyIncomplete =
+        (previousLines.length > 0 && normalizedLines.length === 0) ||
+        (previousLines.length >= 8 && normalizedLines.length < previousLines.length * 0.6);
+      if (suspiciouslyIncomplete) {
+        console.warn(
+          `Kept ${topic.code} (${previousLines.length} lines): Tencent page returned only ${normalizedLines.length} lines`,
+        );
+      } else {
+        topic.lines = normalizedLines;
+      }
       topic.status = topic.lines.length || topic.images.length ? "complete" : "placeholder";
     }
   }

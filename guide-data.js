@@ -1,4 +1,4 @@
-/* Synced from the public Tencent document on 2026-07-17.
+/* Synced from the public Tencent document on 2026-07-20.
  * Decorative emoji are not used by the interface. Time-sensitive claims remain
  * labelled for verification against current official notices.
  */
@@ -1255,7 +1255,7 @@ window.tyutFullGuide = [
           },
           {
             "type": "text",
-            "text": "①会获得校级志愿时长20小时（刚好满足团员推优要求，大学最快最容易拿志愿时长的机会） 6.13志愿时长"
+            "text": "①会获得校级志愿时长20小时（刚好满足团员推优要求，大学最快最容易拿志愿时长的机会） 6.12志愿时长"
           },
           {
             "type": "text",
@@ -1360,7 +1360,7 @@ window.tyutFullGuide = [
         "lines": [
           {
             "type": "text",
-            "text": "军训服装：军训的服装是，开学报道的时候统一领取"
+            "text": "军训服装：军训的服装是开学报道的时候统一领取"
           },
           {
             "type": "text",
@@ -1404,7 +1404,7 @@ window.tyutFullGuide = [
           },
           {
             "type": "text",
-            "text": "晚点名：21:00--21:30 熄灯：11:00"
+            "text": "晚点名：21:00--21:30 熄灯：23:00"
           },
           {
             "type": "text",
@@ -1468,39 +1468,39 @@ window.tyutFullGuide = [
           },
           {
             "type": "text",
-            "text": "五、军训必备物品"
+            "text": "五、军训必备物品 开学必备-物品清单"
           },
           {
             "type": "text",
-            "text": "·防晒霜，晒后修复产品"
+            "text": "防晒霜，晒后修复产品"
           },
           {
             "type": "text",
-            "text": "• 大容量水杯"
+            "text": "大容量水杯"
           },
           {
             "type": "text",
-            "text": "• 舒适运动鞋以及鞋垫"
+            "text": "舒适运动鞋以及鞋垫"
           },
           {
             "type": "text",
-            "text": "• 花露水，清凉油（可买劲凉版有降温效果）"
+            "text": "花露水，清凉油（可买劲凉版有降温效果）"
           },
           {
             "type": "text",
-            "text": "• 合适腰带（军训裤子，腰带比较大）"
+            "text": "合适腰带（军训裤子，腰带比较大）"
           },
           {
             "type": "text",
-            "text": "• 小包湿巾，冰凉贴"
+            "text": "小包湿巾，冰凉贴"
           },
           {
             "type": "text",
-            "text": "• 润喉糖，藿香正气水"
+            "text": "润喉糖，藿香正气水"
           },
           {
             "type": "text",
-            "text": "• 眼镜腿防滑垫，小皮筋"
+            "text": "眼镜腿防滑垫，小皮筋"
           }
         ],
         "images": [
@@ -1710,11 +1710,11 @@ window.tyutFullGuide = [
           },
           {
             "type": "text",
-            "text": "第二步选择业务办理的缴费付款"
+            "text": "第二步：选择业务办理的缴费付款"
           },
           {
             "type": "text",
-            "text": "第三步 进行缴费处理"
+            "text": "第三步：进行缴费处理"
           },
           {
             "type": "text",
@@ -2004,22 +2004,11 @@ window.tyutFullGuide = [
         "images": []
       },
       {
-        "id": "8q2HSzMPEgG5tNSqkhouWj",
+        "id": "Ph5CHea5kwEWevbET1Gjw7",
         "order": 18,
         "code": "2.11",
-        "title": "新生校区（搬宿舍）",
-        "sourceTitle": "2.11新生校区（搬宿舍）",
-        "status": "placeholder",
-        "needsVerification": false,
-        "lines": [],
-        "images": []
-      },
-      {
-        "id": "Ph5CHea5kwEWevbET1Gjw7",
-        "order": 19,
-        "code": "2.12",
         "title": "晚自习",
-        "sourceTitle": "2.12晚自习",
+        "sourceTitle": "2.11晚自习",
         "status": "complete",
         "needsVerification": false,
         "lines": [
@@ -2029,25 +2018,29 @@ window.tyutFullGuide = [
           },
           {
             "type": "text",
-            "text": "单周1.3.5 秋季晚上7-9点"
+            "text": "单周1.3.5 ， 双周2.4.日 可以详细见校历 1.6校历"
           },
           {
             "type": "text",
-            "text": "双周2.4.日 夏季晚上7.30-9.30"
+            "text": "秋季晚上7-9点"
           },
           {
             "type": "text",
-            "text": "晚自习不是上课，只要人到教室就好，相当于提供一个教室供学生学习，期末周就不用去教室学习了，晚自习会有学生会来查，开始查一次，结束前查一次，不去晚自习是需要和辅导员请假的（详情看请假篇 2.13请假）"
+            "text": "夏季晚上7.30-9.30"
+          },
+          {
+            "type": "text",
+            "text": "晚自习不是上课，只要人到教室就好，相当于提供一个教室供学生学习，期末周就不用去教室学习了，晚自习会有学生会来查，开始查一次，结束前查一次，不去晚自习是需要和辅导员请假的（详情看请假篇 2.12请假）"
           }
         ],
         "images": []
       },
       {
         "id": "StIoWTC3IKynxxjn0JJLgO",
-        "order": 20,
-        "code": "2.13",
+        "order": 19,
+        "code": "2.12",
         "title": "请假",
-        "sourceTitle": "2.13请假",
+        "sourceTitle": "2.12请假",
         "status": "complete",
         "needsVerification": false,
         "lines": [
@@ -2094,6 +2087,17 @@ window.tyutFullGuide = [
             "alt": "请假资料图 2"
           }
         ]
+      },
+      {
+        "id": "8q2HSzMPEgG5tNSqkhouWj",
+        "order": 20,
+        "code": "2.11",
+        "title": "新生校区（搬宿舍）",
+        "sourceTitle": "2.11新生校区（搬宿舍）",
+        "status": "placeholder",
+        "needsVerification": false,
+        "lines": [],
+        "images": []
       }
     ]
   },
@@ -2110,9 +2114,14 @@ window.tyutFullGuide = [
         "code": "3.1",
         "title": "笔记本选购",
         "sourceTitle": "3.1笔记本选购",
-        "status": "placeholder",
+        "status": "complete",
         "needsVerification": false,
-        "lines": [],
+        "lines": [
+          {
+            "type": "text",
+            "text": "笔记本是上大学的刚需，今年由于内存市场的变化，笔记本电脑的价格也高了很多，学弟学妹在选购笔记本的时候一定要根据自己的需求购买，如果是不打游戏的文科生建议购买轻薄本，理科生可以根据自己的需求购买轻薄本或者游戏本，下面是一些购买推荐，可以参考指南按需购买。"
+          }
+        ],
         "images": []
       },
       {
@@ -2130,19 +2139,19 @@ window.tyutFullGuide = [
           },
           {
             "type": "text",
-            "text": "学习通：假期刷课，某些课程开设网课刷课，课程签到"
+            "text": "学习通：假期刷课，某些课程开设网课刷课（算入期末成绩的平时分），课程签到"
           },
           {
             "type": "text",
-            "text": "知到：同上"
+            "text": "知到：假期刷课，某些课程开设网课刷课（算入期末成绩的平时分），课程签到"
           },
           {
             "type": "text",
-            "text": "中国大学 MOOC：同上"
+            "text": "中国大学 MOOC：假期刷课，某些课程开设网课刷课（算入期末成绩的平时分），课程签到"
           },
           {
             "type": "text",
-            "text": "雨课堂：同上"
+            "text": "雨课堂：假期刷课，某些课程开设网课刷课（算入期末成绩的平时分），课程签到"
           },
           {
             "type": "text",
@@ -2178,7 +2187,7 @@ window.tyutFullGuide = [
           },
           {
             "type": "text",
-            "text": "PU 口袋校园：活动签 pu 学分（毕业前需要两分，加个社团或组织大一就能凑够) 6.11Pu学分"
+            "text": "PU 口袋校园：活动签 pu 学分（毕业前需要两分，加个社团或组织大一就能凑够) 6.10Pu学分"
           },
           {
             "type": "text",
@@ -2190,7 +2199,7 @@ window.tyutFullGuide = [
           },
           {
             "type": "text",
-            "text": "志愿汇：参加活动加志愿时长（可以加综测，和保研，奖学金相关） 6.13志愿时长"
+            "text": "志愿汇：参加活动加志愿时长（可以加综测，和保研，奖学金相关） 6.12志愿时长"
           },
           {
             "type": "text",
@@ -2227,6 +2236,14 @@ window.tyutFullGuide = [
           {
             "type": "text",
             "text": "首先，只有连上校园 VPN 之后宝子们才可以进入太原理工大学的教务系统，评教、选课等等都需要进入咱们的教务系统里面；其次，咱们学校的校园网（图书馆和部分教室的网）密码也和 VPN 密码一致。"
+          },
+          {
+            "type": "text",
+            "text": "校园网是咱们学校的内部网，连上咱们学校的教务系统，还有查成绩都需要连上校园网。"
+          },
+          {
+            "type": "text",
+            "text": "一定要和校园卡区别开，校园卡只是单独的一张流量卡，跟进宿舍，开门没有任何关系"
           },
           {
             "type": "header1",
@@ -2552,7 +2569,7 @@ window.tyutFullGuide = [
           },
           {
             "type": "text",
-            "text": "1.学生平均学分绩点（GPA）排名在本专业前 60%（含 60%的。 8.2绩点"
+            "text": "1.学生平均学分绩点（GPA）排名在本专业前 60%（含 60%） 8.2绩点"
           },
           {
             "type": "text",
@@ -2936,9 +2953,18 @@ window.tyutFullGuide = [
         "code": "3.8",
         "title": "各学院介绍",
         "sourceTitle": "3.8各学院介绍",
-        "status": "placeholder",
+        "status": "complete",
         "needsVerification": false,
-        "lines": [],
+        "lines": [
+          {
+            "type": "text",
+            "text": "各学院介绍见下面链接"
+          },
+          {
+            "type": "text",
+            "text": "https://mp.weixin.qq.com/mp/appmsgalbum?action=getalbum&__biz=MzU2MTAyNjkxOQ==&scene=1&album_id=4028697885960192013&count=3#wechat_redirect"
+          }
+        ],
         "images": []
       },
       {
@@ -3265,7 +3291,7 @@ window.tyutFullGuide = [
           },
           {
             "type": "text",
-            "text": "课外跑有效时段(06:00~22:30)；规则:单次跑步里程男生最少不低于3.00公里；女生最少不低于2公里，配速在3'0\"~7'0\"，需要经过3个打卡点。"
+            "text": "课外跑有效时段(06:00~22:30)；规则:单次跑步里程男生最少不低于3公里；女生最少不低于2公里，配速在3'0\"~7'0\"，需要经过3个打卡点。"
           },
           {
             "type": "text",
@@ -3507,7 +3533,7 @@ window.tyutFullGuide = [
           },
           {
             "type": "text",
-            "text": "✅ 提交20份及以上 → 认定16小时志愿时长 6.13志愿时长"
+            "text": "✅ 提交20份及以上 → 认定16小时志愿时长 6.12志愿时长"
           },
           {
             "type": "text",
@@ -3531,9 +3557,290 @@ window.tyutFullGuide = [
         "code": "5.1",
         "title": "竞赛",
         "sourceTitle": "5.1竞赛",
-        "status": "placeholder",
+        "status": "complete",
         "needsVerification": false,
-        "lines": [],
+        "lines": [
+          {
+            "type": "text",
+            "text": "最详细竞赛的类别和竞赛全集详细看最下方："
+          },
+          {
+            "type": "text",
+            "text": "S级/A1级竞赛国奖三等奖以上得奖可以保研加分：详细可见 3.5保研"
+          },
+          {
+            "type": "text",
+            "text": "进入大学，你还在像高中一样埋头苦学，只专注于课本知识吗？那你基本就可以与学霸说bye bye 了！大学阶段，所有的知识和机会都需要自己去寻找和汲取。"
+          },
+          {
+            "type": "text",
+            "text": "在这里针对大学期间举足轻重的“竞赛”环节，为大家总结出“五大神仙赛事”。不分专业、不分年级，这些赛事的奖项拿到就是赚到， 3.5保研、 5.3奖学金都在向你招手！"
+          },
+          {
+            "type": "text",
+            "text": "“挑战杯” 中国大学生创业计划竞赛"
+          },
+          {
+            "type": "text",
+            "text": "保研占比最大的竞赛项目之一，含金量极高，国奖到手基本上一只脚已经踏入了保研的大门。权威的带队老师、认真努力的组员和合适的选题缺一不可！学校和老师所提供的资源将成为比拼的重要内容！"
+          },
+          {
+            "type": "text",
+            "text": "报名时间"
+          },
+          {
+            "type": "text",
+            "text": "校赛3月-5月"
+          },
+          {
+            "type": "text",
+            "text": "省赛5月-6月"
+          },
+          {
+            "type": "text",
+            "text": "国赛7月-11月"
+          },
+          {
+            "type": "text",
+            "text": "比赛时间"
+          },
+          {
+            "type": "text",
+            "text": "初赛3月-4月"
+          },
+          {
+            "type": "text",
+            "text": "决赛4月-5月"
+          },
+          {
+            "type": "text",
+            "text": "报名地址"
+          },
+          {
+            "type": "text",
+            "text": "https://www.tiaozhanbei.net/"
+          },
+          {
+            "type": "text",
+            "text": "奖项"
+          },
+          {
+            "type": "text",
+            "text": "国家级/省级金、银、铜奖。"
+          },
+          {
+            "type": "text",
+            "text": "总结"
+          },
+          {
+            "type": "text",
+            "text": "共青团中央主办，含金量高，提交约1.5万字文章(50页汇右)，可提交个人作品，也可以组队。"
+          },
+          {
+            "type": "text",
+            "text": "“互联网+”大学生创新创业比赛"
+          },
+          {
+            "type": "text",
+            "text": "一个拿到国奖就约等于保研的重要竞赛，比赛内容与“挑战杯”相似，大学生团队研究自己的项目、创建自己的公司，只要能力出众，下一个被投资人“翻牌”的就是你！"
+          },
+          {
+            "type": "text",
+            "text": "报名时间"
+          },
+          {
+            "type": "text",
+            "text": "3月-5月"
+          },
+          {
+            "type": "text",
+            "text": "比赛时间"
+          },
+          {
+            "type": "text",
+            "text": "初赛6月"
+          },
+          {
+            "type": "text",
+            "text": "复赛7月-9月"
+          },
+          {
+            "type": "text",
+            "text": "决赛10月"
+          },
+          {
+            "type": "text",
+            "text": "报名地址"
+          },
+          {
+            "type": "text",
+            "text": "https://cy.ncss.cn/"
+          },
+          {
+            "type": "text",
+            "text": "总结"
+          },
+          {
+            "type": "text",
+            "text": "含金量高，教育部主办，围绕互联网+各产业，注重项目落地可行性，撰写商业计划书，包括市场、用户、产品、竞品、盈利模式等，提升创业相关能力。作品包含落地、专利等进度为加分项。可依托老师项目，实验室学生作品，或研读优秀作品，头脑风暴idea，为团队赛，整体不少于3人，不多于15人，有机会获得融资。"
+          },
+          {
+            "type": "text",
+            "text": "全国大学生创新创业训练计划(大创)"
+          },
+          {
+            "type": "text",
+            "text": "“大创”与其他创新创业类竞赛最大的不同在于它只要求“立项”！也就是说，只要项目组与指导老师保持积极有效的沟通，选择合适的赛道并坚持下来，在答辩和最终成果上认真准备，省级和国家级立项到手并不难！"
+          },
+          {
+            "type": "text",
+            "text": "报名时间"
+          },
+          {
+            "type": "text",
+            "text": "6月-7月"
+          },
+          {
+            "type": "text",
+            "text": "比赛时间"
+          },
+          {
+            "type": "text",
+            "text": "校赛8月初"
+          },
+          {
+            "type": "text",
+            "text": "省赛8月末"
+          },
+          {
+            "type": "text",
+            "text": "报名地址"
+          },
+          {
+            "type": "text",
+            "text": "http://gjcxcy.bjtu.edu.cn/index.aspx"
+          },
+          {
+            "type": "text",
+            "text": "总结"
+          },
+          {
+            "type": "text",
+            "text": "含金量高，教育部主办，非比赛性质，整体项目实施和竞赛具有同样价值与意义。一般通过校内选拔，确认立项等级后上报，跟踪至最终的结项，教育部目的是做好孵化。训练具有持续性，有项目经费，一般国家级省级要求在项目过程中产生核心期刊，专利等要求。项目成果可以用于其他互联网+等创业比赛。"
+          },
+          {
+            "type": "text",
+            "text": "全国大学生英语竞赛(简称:大英赛)"
+          },
+          {
+            "type": "text",
+            "text": "“大英赛”被誉为最容易得奖的英语类竞赛，不仅根据英语受教育水平划分ABCD四个不同赛道，而且二等奖和三等奖通过校赛产生，也就意味着你只要比同校参加考试的学生厉害一点点就OK了。“大英赛”题目难度可以对标四六级，但是难点在于“题量大”，想要获奖最好提前进行真题训练。"
+          },
+          {
+            "type": "text",
+            "text": "报名时间"
+          },
+          {
+            "type": "text",
+            "text": "12月-3月"
+          },
+          {
+            "type": "text",
+            "text": "比赛时间"
+          },
+          {
+            "type": "text",
+            "text": "初赛4月中"
+          },
+          {
+            "type": "text",
+            "text": "决赛5月中"
+          },
+          {
+            "type": "text",
+            "text": "报名地址"
+          },
+          {
+            "type": "text",
+            "text": "http://www.chinaneccs.cnl"
+          },
+          {
+            "type": "text",
+            "text": "总结"
+          },
+          {
+            "type": "text",
+            "text": "含金量高，校内赛即可拿到国家级证书。参赛形式很通俗就是考试，英语基本功，个人赛。"
+          },
+          {
+            "type": "text",
+            "text": "外研社杯全国英语演讲比赛"
+          },
+          {
+            "type": "text",
+            "text": "比赛分为演讲和阅读写作两大类，其中演讲赛道含金量最高。在备赛过程中能够极大提升应试教育阶段被忽视的口语能力，而英语口语在保研、考研等面试环节非常加分。"
+          },
+          {
+            "type": "text",
+            "text": "报名时间"
+          },
+          {
+            "type": "text",
+            "text": "6月-10月"
+          },
+          {
+            "type": "text",
+            "text": "比赛时间"
+          },
+          {
+            "type": "text",
+            "text": "初赛6月-10月"
+          },
+          {
+            "type": "text",
+            "text": "复赛11月初"
+          },
+          {
+            "type": "text",
+            "text": "决赛12月中"
+          },
+          {
+            "type": "text",
+            "text": "报名地址"
+          },
+          {
+            "type": "text",
+            "text": "https://uchallenge.unipus.cn/"
+          },
+          {
+            "type": "text",
+            "text": "奖项"
+          },
+          {
+            "type": "text",
+            "text": "国家级/省级金、银、铜奖。"
+          },
+          {
+            "type": "text",
+            "text": "总结"
+          },
+          {
+            "type": "text",
+            "text": "外语教学与研究出版社主办，外研社系列比赛认可度高，国才杯系列三项竞赛全方位考察英文说读写的能力，可选择其中一项参加，也可以选择多个，国赛特等奖可获得赴国外或港澳地区进行学习交流的机会。"
+          },
+          {
+            "type": "text",
+            "text": "演讲大赛考核的是听和说的能力，需要大量的背诵和练习，可以多刷视频练习。"
+          },
+          {
+            "type": "text",
+            "text": "写作与阅读大赛是考试维度，注重单词和真题训练。"
+          },
+          {
+            "type": "text",
+            "text": "除了上述五个全专业可参加重要竞赛，各个专业还有很多仅针对本专业学生的专业性竞赛，大家也可以去多多了解，报名参加。"
+          }
+        ],
         "images": []
       },
       {
@@ -3619,7 +3926,7 @@ window.tyutFullGuide = [
           },
           {
             "type": "text",
-            "text": "2.志愿时长 6.13志愿时长"
+            "text": "2.志愿时长 6.12志愿时长"
           },
           {
             "type": "text",
@@ -4154,7 +4461,7 @@ window.tyutFullGuide = [
           },
           {
             "type": "text",
-            "text": "（3）志愿服务时长20小时及以上； 6.13志愿时长"
+            "text": "（3）志愿服务时长20小时及以上； 6.12志愿时长"
           },
           {
             "type": "text",
@@ -4162,7 +4469,7 @@ window.tyutFullGuide = [
           },
           {
             "type": "text",
-            "text": "（5）无在挂课程，无违纪处分情况；"
+            "text": "（5）无在挂课程（补考通过也算），无违纪处分情况；"
           },
           {
             "type": "text",
@@ -4214,7 +4521,7 @@ window.tyutFullGuide = [
           },
           {
             "type": "text",
-            "text": "（1）一年级学生：综合测评专业前50 % 5.2综测，无挂科现象，第一学期参加两次以上团日活动，第一学期参加志愿服务不少于 20 小时 6.13志愿时长；"
+            "text": "（1）一年级学生：综合测评专业前50 % 5.2综测，无挂科现象，第一学期参加两次以上团日活动，第一学期参加志愿服务不少于 20 小时 6.12志愿时长；"
           },
           {
             "type": "text",
@@ -4294,7 +4601,7 @@ window.tyutFullGuide = [
           },
           {
             "type": "text",
-            "text": "同时要求综测专业前50% 5.2综测，体测及格（及格要求体测达60分，如果毕业总体测成绩不足50分将没有毕业证） 4.2体测，志愿时长满20h 6.13志愿时长"
+            "text": "同时要求综测专业前50% 5.2综测，体测及格（及格要求体测达60分，如果毕业总体测成绩不足50分将没有毕业证） 4.2体测，志愿时长满20h 6.12志愿时长"
           },
           {
             "type": "text",
@@ -4606,29 +4913,14 @@ window.tyutFullGuide = [
         ]
       },
       {
-        "id": "P7xSxqDTXZdaEf5HQJAK7R",
+        "id": "0lv7TYTzWG6ZQMWF9myZI9",
         "order": 47,
         "code": "6.4",
-        "title": "教学楼",
-        "sourceTitle": "6.4教学楼",
-        "status": "placeholder",
-        "needsVerification": false,
-        "lines": [],
-        "images": []
-      },
-      {
-        "id": "0lv7TYTzWG6ZQMWF9myZI9",
-        "order": 48,
-        "code": "6.5",
         "title": "餐厅（位置；时间）",
-        "sourceTitle": "6.5餐厅（位置；时间）",
+        "sourceTitle": "6.4餐厅（位置；时间）",
         "status": "complete",
         "needsVerification": true,
         "lines": [
-          {
-            "type": "text",
-            "text": "太理三校区共有9个食堂，各有特色详情见 7.1校内食堂"
-          },
           {
             "type": "text",
             "text": "开放时间是6:30-8:30；11:00-1:00；5:00-8:30"
@@ -4650,16 +4942,16 @@ window.tyutFullGuide = [
       },
       {
         "id": "XPPZKsm7JvNj51mGfG33Cc",
-        "order": 49,
-        "code": "6.6",
+        "order": 48,
+        "code": "6.5",
         "title": "宿舍（门禁刷脸；卫生检查；设施报修；用电违规电器）",
-        "sourceTitle": "6.6宿舍（门禁刷脸；卫生检查；设施报修；用电违规电器）",
+        "sourceTitle": "6.5宿舍（门禁刷脸；卫生检查；设施报修；用电违规电器）",
         "status": "complete",
         "needsVerification": true,
         "lines": [
           {
             "type": "text",
-            "text": "1.太理宿舍是有门禁的，需要刷脸或者刷校园一卡通进入，校园一卡通是到达宿舍报道的地方领取的，不需要花钱。但是虎峪的10号楼没有门禁。"
+            "text": "1.太理宿舍是有门禁的，需要刷脸或者刷校园一卡通进入，校园一卡通是到达宿舍报道的地方领取的，不需要花钱 2.5一卡通（充值；用途）但是虎峪的10号楼没有门禁。"
           },
           {
             "type": "text",
@@ -4698,10 +4990,10 @@ window.tyutFullGuide = [
       },
       {
         "id": "QJYSUN0ze6yuNpa8xd9YE9",
-        "order": 50,
-        "code": "6.7",
+        "order": 49,
+        "code": "6.6",
         "title": "快递",
-        "sourceTitle": "6.7快递",
+        "sourceTitle": "6.6快递",
         "status": "complete",
         "needsVerification": true,
         "lines": [
@@ -4739,19 +5031,15 @@ window.tyutFullGuide = [
           },
           {
             "type": "text",
-            "text": "柏林校区"
+            "text": "注：明向校区邮编030600，其余二校区邮编均为030024。各校区内设有快递点/菜鸟驿站。"
           },
           {
             "type": "text",
-            "text": "山西省太原市万柏林区西矿街53号 太原理工大学柏林校区"
+            "text": "明向校区的快递站分为菜鸟驿站和拼多多驿站，京东也在菜鸟驿站里。取件的时候要扫码出库。需要下载淘宝和拼多多。一般为拼多多扫码出库。"
           },
           {
             "type": "text",
-            "text": "注：明向校区邮编030600，其余三校区邮编均为030024。各校区内设有快递点/菜鸟驿站。"
-          },
-          {
-            "type": "text",
-            "text": "明向校区的快递站分为菜鸟驿站和拼多多驿站，京东也在菜鸟驿站里。取件的时候要扫码出库。"
+            "text": "虎峪校区的快递站有菜鸟驿站，驿收发，和丰巢快递柜。菜鸟驿站在10号楼的后面，丰巢快递柜和驿收发在一起，在虎峪6号楼的旁边。"
           }
         ],
         "images": [
@@ -4763,32 +5051,126 @@ window.tyutFullGuide = [
       },
       {
         "id": "pAyDrMACWsd0BiO7MsylIB",
-        "order": 51,
-        "code": "6.8",
+        "order": 50,
+        "code": "6.7",
         "title": "澡堂",
-        "sourceTitle": "6.8澡堂",
-        "status": "placeholder",
+        "sourceTitle": "6.7澡堂",
+        "status": "complete",
         "needsVerification": false,
-        "lines": [],
+        "lines": [
+          {
+            "type": "text",
+            "text": "虎峪校区"
+          },
+          {
+            "type": "text",
+            "text": "澡堂位置如图所示："
+          },
+          {
+            "type": "text",
+            "text": "开发时间：早上8.00——22.00（一般早上热水比较少所以，在建议大家10点之后去澡堂）"
+          },
+          {
+            "type": "text",
+            "text": "洗澡用手机支付宝支付，洗澡一定要带手机啊，同时保护好自己的手机"
+          },
+          {
+            "type": "text",
+            "text": "明向校区"
+          },
+          {
+            "type": "text",
+            "text": "明向校区有东、西两个澡堂，其中女生18、19号楼，男生23号楼有单独的澡堂（每一层）。"
+          },
+          {
+            "type": "text",
+            "text": "明向校区洗澡需要使用趣智校园app"
+          },
+          {
+            "type": "text",
+            "text": "迎西校区"
+          },
+          {
+            "type": "text",
+            "text": "澡堂位置如图所示："
+          },
+          {
+            "type": "text",
+            "text": "开发时间：早上8.00——22.00（一般早上热水比较少所以，在建议大家10点之后去澡堂）"
+          },
+          {
+            "type": "text",
+            "text": "洗澡用手机支付宝支付，洗澡一定要带手机啊，同时保护好自己的手机"
+          }
+        ],
         "images": []
       },
       {
         "id": "SFYJXxObFR9N1BxaoHlvFr",
-        "order": 52,
-        "code": "6.9",
-        "title": "校医室（时间；地点；医保；周边医院）",
-        "sourceTitle": "6.9校医室（时间；地点；医保；周边医院）",
-        "status": "placeholder",
+        "order": 51,
+        "code": "6.8",
+        "title": "校医室（时间；地点；医保）",
+        "sourceTitle": "6.8校医室（时间；地点；医保）",
+        "status": "complete",
         "needsVerification": false,
-        "lines": [],
+        "lines": [
+          {
+            "type": "text",
+            "text": "太原理工大学校医院由迎西校区校医院和明向校区医院两部分组成，主要职能包括健康教育及传染病防控、基本医疗保障、大学生医保相关工作和计划生育相关工作。"
+          },
+          {
+            "type": "text",
+            "text": "一、明向校区 x"
+          },
+          {
+            "type": "text",
+            "text": "1.位置："
+          },
+          {
+            "type": "text",
+            "text": "2.明向校医院要花3块挂号，有小病（如感冒，咳嗽）"
+          },
+          {
+            "type": "text",
+            "text": "3.校医院只有内科和外科，设施整体比较简陋"
+          },
+          {
+            "type": "text",
+            "text": "4.可以把校医院当成药房，小病可以去，大病还是建议去校外的正规医院"
+          },
+          {
+            "type": "text",
+            "text": "二.迎西校区"
+          },
+          {
+            "type": "text",
+            "text": "1.位置"
+          },
+          {
+            "type": "text",
+            "text": "在迎西校区西门进去，直走五十米在南边即可看到"
+          },
+          {
+            "type": "text",
+            "text": "2.迎西校医院要花3块挂号，有小病（如感冒，咳嗽），但是这个挂号费会在最后退回"
+          },
+          {
+            "type": "text",
+            "text": "3.校医院只有内科和外科，设施整体比较简陋，但是校医院隔壁就是万柏林区社区医院"
+          },
+          {
+            "type": "text",
+            "text": "4.可以把校医院当成药房，小病可以去，大病还是建议去隔壁或者附近的大医院"
+          }
+        ],
         "images": []
       },
       {
         "id": "YOthacnc45kQn5tpwdswXD",
-        "order": 53,
-        "code": "6.10",
+        "order": 52,
+        "code": "6.9",
         "title": "社团",
-        "sourceTitle": "6.10社团",
+        "sourceTitle": "6.9社团",
         "status": "placeholder",
         "needsVerification": false,
         "lines": [],
@@ -4796,10 +5178,10 @@ window.tyutFullGuide = [
       },
       {
         "id": "QHMRSOfcULwm3wCl3xV1sk",
-        "order": 54,
-        "code": "6.11",
+        "order": 53,
+        "code": "6.10",
         "title": "Pu学分",
-        "sourceTitle": "6.11Pu学分",
+        "sourceTitle": "6.10Pu学分",
         "status": "complete",
         "needsVerification": false,
         "lines": [
@@ -4833,7 +5215,7 @@ window.tyutFullGuide = [
           },
           {
             "type": "text",
-            "text": "（上面两项按规定参加就可以达到毕业要求）"
+            "text": "（上面两项按规定参加就可以达到毕业要求），一般正常情况下毕业拿满2.0pu不是什么难事"
           },
           {
             "type": "text",
@@ -4844,10 +5226,10 @@ window.tyutFullGuide = [
       },
       {
         "id": "AtCttvGxlv20kGlhq3bKTg",
-        "order": 55,
-        "code": "6.12",
+        "order": 54,
+        "code": "6.11",
         "title": "学校组织",
-        "sourceTitle": "6.12学校组织",
+        "sourceTitle": "6.11学校组织",
         "status": "placeholder",
         "needsVerification": false,
         "lines": [],
@@ -4855,10 +5237,10 @@ window.tyutFullGuide = [
       },
       {
         "id": "Ph6VXeRPihROcl2egcMA4H",
-        "order": 56,
-        "code": "6.13",
+        "order": 55,
+        "code": "6.12",
         "title": "志愿时长",
-        "sourceTitle": "6.13志愿时长",
+        "sourceTitle": "6.12志愿时长",
         "status": "complete",
         "needsVerification": false,
         "lines": [
@@ -4904,6 +5286,17 @@ window.tyutFullGuide = [
           }
         ],
         "images": []
+      },
+      {
+        "id": "P7xSxqDTXZdaEf5HQJAK7R",
+        "order": 56,
+        "code": "6.4",
+        "title": "教学楼",
+        "sourceTitle": "6.4教学楼",
+        "status": "placeholder",
+        "needsVerification": false,
+        "lines": [],
+        "images": []
       }
     ]
   },
@@ -4915,35 +5308,249 @@ window.tyutFullGuide = [
     "sourceTitle": "七.TYUT吃喝娱乐篇",
     "topics": [
       {
-        "id": "h4w6saYMlIdpW1nQXcnoSN",
+        "id": "I1wNOvGdO4rGSg1cBypZUP",
         "order": 57,
+        "code": "7.2",
+        "title": "校外推荐小吃饭店",
+        "sourceTitle": "太原校区",
+        "status": "complete",
+        "needsVerification": true,
+        "lines": [
+          {
+            "type": "header1",
+            "text": "明向校区与榆次大学城"
+          },
+          {
+            "type": "text",
+            "text": "明向校区在榆次大学城内，周围有依然青年广场，还有万达万科等商城。"
+          },
+          {
+            "type": "text",
+            "text": "绝佳美食推荐："
+          },
+          {
+            "type": "text",
+            "text": "1.盛江山海鲜烤肉"
+          },
+          {
+            "type": "text",
+            "text": "2.喜三胖韩国自助烤肉"
+          },
+          {
+            "type": "text",
+            "text": "3.秦三娘鲜切牛肉自助火锅"
+          },
+          {
+            "type": "text",
+            "text": "注：秦三娘虽然店面其貌不扬，但是其内部真是别有洞天，强烈推荐"
+          },
+          {
+            "type": "text",
+            "text": "4.万科旁边的小吃街，集结各地小吃，给到人上人"
+          },
+          {
+            "type": "text",
+            "text": "5.太理东门对面的水果店，卖的比学校便宜还新鲜，而且水果捞在晚上10点后打5折，给到夯"
+          }
+        ],
+        "images": []
+      },
+      {
+        "id": "HsxCmONKydJKxoBwh7ZBkT",
+        "order": 58,
+        "code": "7.3",
+        "title": "校内外娱乐",
+        "sourceTitle": "7.3校内外娱乐",
+        "status": "complete",
+        "needsVerification": false,
+        "lines": [
+          {
+            "type": "text",
+            "text": "大学生活固然以学业为主，但丰富咱们的大学生活也尤为重要，而校内外娱乐便是一大方式，这不仅可以缓解咱的学习压力，还可以丰富社交方式，对于当今大学生而言其校内外的主要娱乐活动有体育运动、社交娱乐和户外休闲。"
+          },
+          {
+            "type": "text",
+            "text": "虎峪与迎西校区："
+          },
+          {
+            "type": "text",
+            "text": "一、校内娱乐："
+          },
+          {
+            "type": "text",
+            "text": "1.虎峪与迎西校区内均有篮球场，但其地板较脏"
+          },
+          {
+            "type": "text",
+            "text": "2.迎西校区内设有体育馆，室内设有羽毛球馆"
+          },
+          {
+            "type": "text",
+            "text": "3.迎西校区内还有网球场"
+          },
+          {
+            "type": "text",
+            "text": "4.迎西与虎峪校区均有足球场"
+          },
+          {
+            "type": "text",
+            "text": "总结来说迎西与虎峪校内有众多运动场地，大多数体育运动均可在校内实现"
+          },
+          {
+            "type": "text",
+            "text": "二、校外娱乐："
+          },
+          {
+            "type": "text",
+            "text": "虎峪与迎西校区地处太原市万柏林区中心腹部区域，在其周围遍布众多商场与购物中心故在学校周围娱乐场所多样"
+          },
+          {
+            "type": "text",
+            "text": "✅ 步行5分钟内（最近、日常）"
+          },
+          {
+            "type": "text",
+            "text": "聚财缘·台球俱乐部：距360米，24h、干净、性价比高，朋友随手约球/棋牌"
+          },
+          {
+            "type": "text",
+            "text": "辉耀桌球：340米，很近、24h，注意环境评价一般、备选即可"
+          },
+          {
+            "type": "text",
+            "text": "校门口小吃街（新矿院路/千峰南路）：夜市、烧烤、小吃摊，烟火气、晚上散步吃串最方便"
+          },
+          {
+            "type": "text",
+            "text": "咖啡馆：稻禧咖啡，性价比很高，环境不错，宝藏小店"
+          },
+          {
+            "type": "text",
+            "text": "✅ 1–1.5km｜下元商圈·公元时代城（地铁1号线下元站，首选聚会）"
+          },
+          {
+            "type": "text",
+            "text": "一站式吃喝看玩，学生核心据点："
+          },
+          {
+            "type": "text",
+            "text": "1. CGV影城(公元时代店)：4楼，人气影院、看新片首选，地铁直达、观影方便"
+          },
+          {
+            "type": "text",
+            "text": "2. 胤浪派对娱乐KTV：4楼，性价比高、包间多、适合同学聚会K歌到深夜"
+          },
+          {
+            "type": "text",
+            "text": "3. 超级顽家神奇密室：5楼，高分密室、主题多（恐怖/解谜/亲子友好）、朋友组队烧脑"
+          },
+          {
+            "type": "text",
+            "text": "✅ 2km左右｜吾悦广场（更大、更全）"
+          },
+          {
+            "type": "text",
+            "text": "太原吾悦广场：餐饮、逛街、电玩、摩天轮、攀岩，逛一整天"
+          },
+          {
+            "type": "text",
+            "text": "星际传奇电玩城：吾悦3楼，赛车、抓娃娃、射击，电玩解压"
+          },
+          {
+            "type": "text",
+            "text": "星聚会KTV：吾悦6楼，环境新、音响好、可桌游影包"
+          },
+          {
+            "type": "text",
+            "text": "四个朋友自助棋牌：24h自助麻将、私密包间、随时开局"
+          },
+          {
+            "type": "text",
+            "text": "✅ 文化/户外休闲（免费、轻松、地铁可达）"
+          },
+          {
+            "type": "text",
+            "text": "1. 山西博物院：距约1km、地铁1站，免费、公众号提前预约、周一闭馆；镇馆之宝晋侯鸟尊、晋国霸业展厅，文艺打卡、看展好去处"
+          },
+          {
+            "type": "text",
+            "text": "2. 汾河景区/汾河湿地公园：步行/骑行可达、免费；沿河散步、看日落、夜景观景、吹风慢跑、共享单车休闲，傍晚超舒服"
+          },
+          {
+            "type": "text",
+            "text": "✅ 一句话总结路线建议"
+          },
+          {
+            "type": "text",
+            "text": "日常就近：校门口小吃+聚财缘台球"
+          },
+          {
+            "type": "text",
+            "text": "朋友聚会：公元时代城（CGV+密室+KTV），地铁最顺"
+          },
+          {
+            "type": "text",
+            "text": "逛吃+电玩：吾悦广场"
+          },
+          {
+            "type": "text",
+            "text": "安静免费：山西博物院、汾河散步休闲"
+          },
+          {
+            "type": "text",
+            "text": "明向校区："
+          },
+          {
+            "type": "text",
+            "text": "一、校内娱乐；"
+          },
+          {
+            "type": "text",
+            "text": "1.很多个篮球场"
+          },
+          {
+            "type": "text",
+            "text": "2.学生活动中心（内部有羽毛球场）"
+          },
+          {
+            "type": "text",
+            "text": "3.有一个排球场"
+          },
+          {
+            "type": "text",
+            "text": "4.各大校内社团组织经常举办的娱乐活动或小游戏（非常多）"
+          },
+          {
+            "type": "text",
+            "text": "5.谈个恋爱"
+          },
+          {
+            "type": "text",
+            "text": "二、校外娱乐："
+          },
+          {
+            "type": "text",
+            "text": "1.东门出去就是一个学生广场，有各种小吃，大小餐馆，是校内小情侣平时散步娱乐最常见的地方之一，也是宿舍聚餐的一个热门地点"
+          },
+          {
+            "type": "text",
+            "text": "2.离明向校区1.5公里外，有万达万科，汇聚了周边所有大学的人流量，电影院，餐厅，台球，麻将室，剧本杀，酒吧，猫咖等等一应俱全"
+          },
+          {
+            "type": "text",
+            "text": "3.也可以去太原玩，晋中临近太原"
+          }
+        ],
+        "images": []
+      },
+      {
+        "id": "h4w6saYMlIdpW1nQXcnoSN",
+        "order": 59,
         "code": "7.1",
         "title": "校内食堂",
         "sourceTitle": "7.1校内食堂",
         "status": "placeholder",
         "needsVerification": true,
-        "lines": [],
-        "images": []
-      },
-      {
-        "id": "I1wNOvGdO4rGSg1cBypZUP",
-        "order": 58,
-        "code": "7.2",
-        "title": "校外推荐小吃饭店",
-        "sourceTitle": "7.2校外推荐小吃饭店",
-        "status": "placeholder",
-        "needsVerification": true,
-        "lines": [],
-        "images": []
-      },
-      {
-        "id": "HsxCmONKydJKxoBwh7ZBkT",
-        "order": 59,
-        "code": "7.3",
-        "title": "校内外娱乐",
-        "sourceTitle": "7.3校内外娱乐",
-        "status": "placeholder",
-        "needsVerification": false,
         "lines": [],
         "images": []
       }
@@ -5903,7 +6510,7 @@ window.tyutFullGuide = [
           },
           {
             "type": "text",
-            "text": "3．学生平均学分绩点大于等于2.3。"
+            "text": "3．学生平均学分绩点大于等于2.3。 8.2绩点"
           },
           {
             "type": "text",
