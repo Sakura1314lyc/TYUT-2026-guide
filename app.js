@@ -1453,9 +1453,9 @@ const seniorProfiles = [
     major: "水利",
     photo: "./assets/seniors/rui-photo.jpg",
     qr: "./assets/seniors/rui-qr.jpg",
-    strengths: ["学习规划", "转专业", "保研", "竞赛", "篮球"],
-    tags: ["ENFJ", "万事通", "助人为乐", "新生领路人"],
-    bio: "大四，已入党、保研；有转专业、奖学金和竞赛等多项经历，也做过社团负责人、社团社长。爱打篮球，也喜欢说走就走的旅行，欢迎新生来交流。",
+    strengths: ["爱学习", "搞抽象", "篮球", "瓦", "爱享受自由", "追求心中宁静"],
+    tags: ["ENFJ", "万事通", "助人为乐", "被发好人卡", "爱搞抽象", "新生领路人"],
+    bio: "大四老登，已入党、保研；转专业、奖学金、竞赛都有过众多经验。做过社团负责人、社团社长，爱打篮球，向往自由和说走就走的旅行，新生宝宝快来找学长玩。",
     roles: ["社团负责人", "社团社长", "新生答疑伙伴"],
     contact: "扫码添加微信",
   },
@@ -1466,21 +1466,21 @@ const seniorProfiles = [
     major: "自动化",
     photo: "./assets/seniors/left-ear-photo.jpg",
     qr: "./assets/seniors/left-ear-qr.jpg",
-    strengths: ["聊天", "校园闲逛", "爬山", "风景摄影"],
-    tags: ["INFP", "爱笑", "家教通", "避雷经验", "聊天秒回"],
-    bio: "来自山西长治的自动化专业女生，喜欢爬山、拍风景照。聊天速度不快但回复很及时，也乐意把自己踩过的雷和真实校园体验讲清楚。",
+    strengths: ["聊天", "闲逛"],
+    tags: ["INFP", "爱笑", "家教通", "有点子抽象", "讲话很慢聊天秒回", "吃出精品", "踩过雷会避雷"],
+    bio: "学自动化的女生，来自山西长治，热爱爬山拍风景照。三言两语并不能代表真实的我。",
     roles: ["曾任心理委员", "现任社团团支书"],
     contact: "扫码添加微信",
   },
   {
     id: "platinum-maple",
     name: "白金与枫树~",
-    location: "太原理工大学",
+    location: "",
     major: "机械电子工程（卓越班）",
     photo: "./assets/seniors/platinum-photo.jpg",
-    strengths: ["理科学习", "家教兼职", "期末复习", "体育运动"],
-    tags: ["兼职", "家教", "期末速成", "入党积极分子"],
-    bio: "熟悉校内外兼职，有较丰富的家教资源；期末一周复习取得高数 91、线代 88 的成绩，目前已入选入党积极分子。",
+    strengths: ["擅长理科学习", "擅长各种各样的体育运动"],
+    tags: ["兼职", "家教", "期末速成"],
+    bio: "精通校内外兼职，有丰富家教资源，经历非常丰富；期末一周复习高数 91、线代 88，已经入选入党积极分子。",
     roles: ["机械学院家教部部长"],
     contact: "微信号：zyq19735025939",
   },
@@ -1491,10 +1491,10 @@ const seniorProfiles = [
     major: "工程力学试验班",
     photo: "./assets/seniors/lonely-photo.jpg",
     qr: "./assets/seniors/lonely-qr.jpg",
-    strengths: ["篮球", "运动", "交流", "校园闲逛"],
+    strengths: ["爱运动", "会打篮球", "爱闲逛"],
     tags: ["抽象幽默", "有时 i 有时 e", "网上冲浪", "运动"],
-    bio: "来自云南，目前就读工程力学试验班。性格活泼，对新鲜事物有很强的好奇心与探索欲，平时喜欢思考、运动，也喜欢和人交流。",
-    roles: ["试验班答疑伙伴"],
+    bio: "来自云南，目前就读于工程力学试验班。个人生性活泼，对任何新鲜事物都有极强的好奇心与探索欲，平时无聊时就爱思考人生，喜欢与人交流沟通探索。",
+    roles: [],
     contact: "微信号：15287091180",
   },
   {
@@ -1504,36 +1504,38 @@ const seniorProfiles = [
     major: "数学与应用数学",
     photo: "./assets/seniors/sleeper-art.jpg",
     qr: "./assets/seniors/sleeper-qr.jpg",
-    strengths: ["数学", "计算机", "学习规划", "校园美食"],
-    tags: ["专业前 10%", "综测前 10%", "耳机常驻", "享受当下"],
-    bio: "加权成绩和综测排名均位于专业前 10%。喜欢数学与计算机，也喜欢散步、探店和体验新鲜事物；已经吃遍不少榆次大学城校内外美食。",
+    strengths: ["睡得比别人长", "精神状态不太正常"],
+    tags: ["不戴耳机不能出门（日常生活需要 BGM）", "王者荣耀", "小区幼儿园篮球王", "老吃家", "离了耳机无法生存"],
+    bio: "加权成绩排名专业前 10%，综测排名前 10%。喜欢数学、计算机，不喜欢墨守成规；享受美食，已经吃遍整个榆次大学城校内外的美味。喜欢散步、喜欢刺激、享受当下，说不定明天就死了呢。",
     roles: ["荟萃文创社团负责人之一"],
     contact: "扫码添加微信",
   },
   {
     id: "blue-bench",
     name: "蓝色板凳爱吃面",
-    location: "太原理工大学",
-    major: "应物 2501",
+    location: "",
+    major: "应物2501",
     photo: "./assets/seniors/bluebench-source.png",
     photoClass: "is-bluebench",
-    strengths: ["转专业", "课程学习", "评奖评优", "科创竞赛", "学生工作"],
-    tags: ["专业前 10%", "综测前 5%", "愿意尝试新事物"],
+    strengths: ["愿意学习一切新鲜事物"],
+    tags: ["给我一颗回春丹", "逃出苦难向春山"],
     bio: "学业成绩位于专业前 10%，大一综合素质测评位于专业前 5%。愿意和新生交流转专业、课程学习、评奖评优、科创竞赛及学生工作经验。",
     roles: ["班委", "校级社团组织负责人"],
     contact: "微信号：_Lzy070909",
   },
   {
     id: "guide",
-    name: "新生领路人",
-    location: "太原理工大学",
-    major: "资源勘查工程",
-    photo: "./assets/seniors/guide-photo.jpg",
-    strengths: ["项目统筹", "政策解读", "资源对接", "问题落地"],
-    tags: ["班级团支书", "政策全了解", "四年规划", "务实不空谈"],
-    bio: "身在理工，眼界不止限于课本。熟悉校内规则和评优、保研、评奖路径；不做表面工作，只做真正能帮到别人的事。见过弯路，也愿意为后来人铺平道路。",
+    name: "👠",
+    location: "",
+    major: "资勘",
+    photo: "./assets/seniors/guide-motorcycle-source.png",
+    photoClass: "is-guide-motorcycle",
+    secondaryPhoto: "./assets/seniors/guide-photo.jpg",
+    strengths: ["项目统筹", "政策解读", "校园资源对接", "问题落地解决"],
+    tags: ["班级团支书", "校内政策全了解", "四年校区规划指导", "务实不空谈", "新生领路人"],
+    bio: "身在理工，眼界不止限于课本。熟悉校内全部规则，吃透评优、保研、评奖所有路径。不做表面工作，只做真正能帮到别人的事。见过弯路，所以愿意为后来人铺平道路。凡事有分寸，做事有结果。",
     roles: ["班级团支书", "新生答疑负责人", "校园新生攻略负责人", "校区多部门对接人"],
-    contact: "微信昵称：🦖",
+    contact: "微信名：👠",
   },
   {
     id: "pogong",
@@ -1542,36 +1544,36 @@ const seniorProfiles = [
     major: "安全工程转机器人工程",
     photo: "./assets/seniors/pogong-photo.jpg",
     qr: "./assets/seniors/pogong-qr.jpg",
-    strengths: ["转专业", "入团", "社团组织", "小队协作"],
-    tags: ["i 人", "INFP", "网上冲浪", "成绩不错"],
-    bio: "山西人，有转专业和入团经历，参加过多个社团组织，也担任过小队长。可以交流专业选择、组织生活和适应大学节奏。",
-    roles: ["社团参与者", "曾任小队长"],
+    strengths: [],
+    tags: ["i 人", "INFP", "网上冲浪 🏄"],
+    bio: "山西人，有转专业、入团经验，参加了很多社团组织，也当过小队长，成绩不错 🙄。",
+    roles: [],
     contact: "扫码添加微信",
   },
   {
     id: "sisyphus",
     name: "Sisyphus",
-    location: "太原理工大学",
+    location: "",
     major: "制药工程",
     photo: "./assets/seniors/sisyphus-source.png",
     photoClass: "is-sisyphus",
     qr: "./assets/seniors/sisyphus-qr.png",
-    strengths: ["团队沟通", "活动策划", "专业实验", "羽毛球"],
-    tags: ["ENTP", "天秤座", "Z 青年负责人", "无畏契约"],
-    bio: "制药工程大二学生，同时是 Z 青年团队负责人。擅长沟通策划，课余爱打羽毛球、玩无畏契约；既能静心钻研专业实验，也乐意交流团队协作问题。",
+    strengths: ["喜欢打瓦", "洲", "羽毛球"],
+    tags: ["ENTP", "天秤座", "Z 青年团队负责人", "无畏契约", "伦敦未必有我鱿鱼"],
+    bio: "我是制药工程大二学生，同时也是 Z 青年团队负责人。本人 ENTP 天秤座，想法跳脱，擅长沟通策划。平时课余爱打羽毛球，休闲时会玩无畏契约锻炼临场应变；既能静下心钻研专业实验，也很乐意和大家交流团队相关问题。",
     roles: ["Z 青年团队负责人"],
     contact: "扫码添加微信",
   },
   {
     id: "poet",
     name: "诗盅",
-    location: "太原理工大学",
+    location: "",
     major: "自动化",
     photo: "./assets/seniors/poet-photo.jpg",
     qr: "./assets/seniors/poet-qr.jpg",
-    strengths: ["入党政策", "奖学金", "转专业", "摄影", "游戏"],
-    tags: ["自动化班长", "入党积极分子", "佳能 650D", "不爱早八"],
-    bio: "24 届自动化班长，目前是入党积极分子。熟悉学校入党、奖学金和转专业政策，也有具体班委工作经验；爱打篮球、摄影，也玩三角洲、瓦、CF、光遇和王者。",
+    strengths: ["篮球", "摄影（佳能 650D）", "三角洲", "瓦", "延长假期的手段"],
+    tags: ["只要胆子大，天天在放假", "不上早八之人"],
+    bio: "24 届自动化班长，目前是入党积极分子。对于咱们学校入党、奖学金、转专业都比较了解，经手过具体的政策文件，有什么问题都可以来找我；学长有如何当班委的小技巧。喜欢打三角洲、瓦、CF、光遇、王者，也爱好摄影，设备是佳能 650D 的老单反。别欺负学长是个新手，欢迎来找学长玩。",
     roles: ["自动化班长", "入党积极分子"],
     contact: "扫码添加微信",
   },
@@ -2146,6 +2148,16 @@ function renderSeniorDirectory() {
     .join("");
 
   const photoClass = activeProfile.photoClass ? ` ${activeProfile.photoClass}` : "";
+  const photoGalleryMarkup = `
+    <div class="senior-photo-gallery${activeProfile.secondaryPhoto ? " has-multiple" : ""}">
+      <div class="senior-selected-photo${photoClass}" style="background-image: url('${escapeGuideText(activeProfile.photo)}')" role="img" aria-label="${escapeGuideText(activeProfile.name)}的照片"></div>
+      ${
+        activeProfile.secondaryPhoto
+          ? `<div class="senior-selected-photo" style="background-image: url('${escapeGuideText(activeProfile.secondaryPhoto)}')" role="img" aria-label="${escapeGuideText(activeProfile.name)}的补充照片"></div>`
+          : ""
+      }
+    </div>
+  `;
   const contactMarkup = activeProfile.qr
     ? `
         <div class="senior-contact-qr">
@@ -2175,9 +2187,9 @@ function renderSeniorDirectory() {
     <article class="senior-selected-media">
       <div class="senior-selected-topline">
         <span>SELECTED MENTOR / ${String(activeIndex + 1).padStart(2, "0")}</span>
-        <small>${escapeGuideText(activeProfile.location)}</small>
+        ${activeProfile.location ? `<small>${escapeGuideText(activeProfile.location)}</small>` : ""}
       </div>
-      <div class="senior-selected-photo${photoClass}" style="background-image: url('${escapeGuideText(activeProfile.photo)}')" role="img" aria-label="${escapeGuideText(activeProfile.name)}的照片"></div>
+      ${photoGalleryMarkup}
       ${contactMarkup}
     </article>
     <article class="senior-selected-info">
@@ -2189,25 +2201,39 @@ function renderSeniorDirectory() {
         </div>
         <b>${String(activeIndex + 1).padStart(2, "0")}</b>
       </header>
-      <section class="senior-info-block">
-        <span class="senior-info-label">擅长交流</span>
-        <div class="senior-strength-list">
-          ${activeProfile.strengths.map((item) => `<span>${escapeGuideText(item)}</span>`).join("")}
-        </div>
-      </section>
+      ${
+        activeProfile.strengths.length
+          ? `
+              <section class="senior-info-block">
+                <span class="senior-info-label">特长</span>
+                <div class="senior-strength-list">
+                  ${activeProfile.strengths.map((item) => `<span>${escapeGuideText(item)}</span>`).join("")}
+                </div>
+              </section>
+            `
+          : ""
+      }
       <section class="senior-info-block">
         <span class="senior-info-label">个人介绍</span>
         <p class="senior-profile-bio">${escapeGuideText(activeProfile.bio)}</p>
       </section>
-      <section class="senior-info-block senior-role-block">
-        <span class="senior-info-label">经历与职务</span>
-        <ul>
-          ${activeProfile.roles.map((role) => `<li>${escapeGuideText(role)}</li>`).join("")}
-        </ul>
-      </section>
-      <div class="senior-tag-list">
-        ${activeProfile.tags.map((tag) => `<span># ${escapeGuideText(tag)}</span>`).join("")}
-      </div>
+      ${
+        activeProfile.roles.length
+          ? `
+              <section class="senior-info-block senior-role-block">
+                <span class="senior-info-label">职务</span>
+                <ul>
+                  ${activeProfile.roles.map((role) => `<li>${escapeGuideText(role)}</li>`).join("")}
+                </ul>
+              </section>
+            `
+          : ""
+      }
+      ${
+        activeProfile.tags.length
+          ? `<div class="senior-tag-list">${activeProfile.tags.map((tag) => `<span># ${escapeGuideText(tag)}</span>`).join("")}</div>`
+          : ""
+      }
     </article>
   `;
 }

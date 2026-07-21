@@ -5724,6 +5724,12 @@ p {
   background-size: 386%;
 }
 
+.senior-avatar.is-guide-motorcycle,
+.senior-selected-photo.is-guide-motorcycle {
+  background-position: 15% 16.5%;
+  background-size: 343%;
+}
+
 .senior-person-copy {
   display: grid;
   gap: 5px;
@@ -5782,6 +5788,10 @@ p {
   box-shadow: var(--shadow-small);
 }
 
+.senior-selected-media {
+  align-self: start;
+}
+
 .senior-selected-topline {
   display: flex;
   align-items: center;
@@ -5795,6 +5805,15 @@ p {
   font-size: 0.64rem;
 }
 
+.senior-photo-gallery {
+  display: grid;
+  gap: 10px;
+}
+
+.senior-photo-gallery.has-multiple {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .senior-selected-photo {
   aspect-ratio: 4 / 3;
   background-color: #e8e2d8;
@@ -5802,6 +5821,10 @@ p {
   background-size: cover;
   border-radius: 14px;
   box-shadow: inset 0 0 0 1px rgba(18, 61, 106, 0.08);
+}
+
+.senior-photo-gallery.has-multiple .senior-selected-photo {
+  aspect-ratio: 1;
 }
 
 .senior-contact-qr {
