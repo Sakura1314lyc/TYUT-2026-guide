@@ -1475,9 +1475,11 @@ const seniorProfiles = [
   {
     id: "platinum-maple",
     name: "白金与枫树~",
-    location: "",
+    location: "山西 太原",
     major: "机械电子工程（卓越班）",
-    photo: "./assets/seniors/platinum-photo.jpg",
+    photo: "./assets/seniors/platinum-avatar.jpg",
+    secondaryPhoto: "./assets/seniors/platinum-photo.jpg",
+    qr: "./assets/seniors/platinum-qr.jpg",
     strengths: ["擅长理科学习", "擅长各种各样的体育运动"],
     tags: ["兼职", "家教", "期末速成"],
     bio: "精通校内外兼职，有丰富家教资源，经历非常丰富；期末一周复习高数 91、线代 88，已经入选入党积极分子。",
