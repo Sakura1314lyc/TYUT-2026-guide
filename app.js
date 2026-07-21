@@ -1527,7 +1527,7 @@ const seniorProfiles = [
   },
   {
     id: "guide",
-    name: "👠",
+    name: "🐦",
     location: "",
     major: "资勘",
     photo: "./assets/seniors/guide-motorcycle-source.png",
@@ -1537,7 +1537,7 @@ const seniorProfiles = [
     tags: ["班级团支书", "校内政策全了解", "四年校区规划指导", "务实不空谈", "新生领路人"],
     bio: "身在理工，眼界不止限于课本。熟悉校内全部规则，吃透评优、保研、评奖所有路径。不做表面工作，只做真正能帮到别人的事。见过弯路，所以愿意为后来人铺平道路。凡事有分寸，做事有结果。",
     roles: ["班级团支书", "新生答疑负责人", "校园新生攻略负责人", "校区多部门对接人"],
-    contact: "微信名：👠",
+    contact: "微信名：🐦",
   },
   {
     id: "pogong",
@@ -1568,7 +1568,7 @@ const seniorProfiles = [
   },
   {
     id: "poet",
-    name: "诗盅",
+    name: "诗盎",
     location: "",
     major: "自动化",
     photo: "./assets/seniors/poet-photo.jpg",
@@ -2711,6 +2711,19 @@ async function sharePage() {
 }
 
 function handleClick(event) {
+  const chapterJump = event.target.closest(".chapter-jump");
+  if (chapterJump) {
+    const target = document.querySelector(chapterJump.getAttribute("href"));
+    if (target) {
+      event.preventDefault();
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+      window.history.replaceState(null, "", chapterJump.hash);
+      chapterJump.blur();
+    }
+    return;
+  }
+
   const seniorButton = event.target.closest("[data-senior-id]");
   if (seniorButton) {
     activeSeniorId = seniorButton.dataset.seniorId;
@@ -2885,16 +2898,27 @@ function observeReveals() {
 
 function observeSections() {
   if (!("IntersectionObserver" in window)) return;
-  const links = [...document.querySelectorAll(".desktop-nav a")];
-  const targets = links
-    .map((link) => document.querySelector(link.getAttribute("href")))
-    .filter(Boolean);
+  const links = [
+    ...document.querySelectorAll(".desktop-nav a, .mobile-nav a, .chapter-jump"),
+  ];
+  const targets = [
+    ...new Set(
+      links
+        .map((link) => document.querySelector(link.getAttribute("href")))
+        .filter(Boolean),
+    ),
+  ];
   const observer = new IntersectionObserver(
     (entries) => {
-      const visible = entries.find((entry) => entry.isIntersecting);
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
       if (!visible) return;
       links.forEach((link) => {
-        link.classList.toggle("is-active", link.hash === `#${visible.target.id}`);
+        const isActive = link.hash === `#${visible.target.id}`;
+        link.classList.toggle("is-active", isActive);
+        if (isActive) link.setAttribute("aria-current", "location");
+        else link.removeAttribute("aria-current");
       });
     },
     { rootMargin: "-25% 0px -65% 0px" },
