@@ -1533,7 +1533,7 @@ const seniorProfiles = [
     tags: ["班级团支书", "政策全了解", "四年规划", "务实不空谈"],
     bio: "身在理工，眼界不止限于课本。熟悉校内规则和评优、保研、评奖路径；不做表面工作，只做真正能帮到别人的事。见过弯路，也愿意为后来人铺平道路。",
     roles: ["班级团支书", "新生答疑负责人", "校园新生攻略负责人", "校区多部门对接人"],
-    contact: "微信昵称：🦖（原资料未提供二维码或微信号）",
+    contact: "微信昵称：🦖",
   },
   {
     id: "pogong",
@@ -2168,7 +2168,6 @@ function renderSeniorDirectory() {
         <div class="senior-contact-text">
           <span>CONTACT</span>
           <strong>${escapeGuideText(activeProfile.contact)}</strong>
-          <small>页面仅展示本人提供的信息，不补写未提供的联系方式。</small>
         </div>
       `;
 
