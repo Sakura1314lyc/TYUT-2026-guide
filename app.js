@@ -1530,7 +1530,7 @@ const seniorProfiles = [
     id: "guide",
     name: "🐦",
     location: "山西 长治",
-    major: "资勘",
+    major: "资勘转光电",
     photo: "./assets/seniors/guide-motorcycle-source.png",
     photoClass: "is-guide-motorcycle",
     secondaryPhoto: "./assets/seniors/guide-photo.jpg",
