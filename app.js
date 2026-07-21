@@ -1445,6 +1445,138 @@ const guides = guideSections.flatMap((section) =>
   })),
 );
 
+const seniorProfiles = [
+  {
+    id: "rui",
+    name: "Rui",
+    location: "百慕大",
+    major: "水利",
+    photo: "./assets/seniors/rui-photo.jpg",
+    qr: "./assets/seniors/rui-qr.jpg",
+    strengths: ["学习规划", "转专业", "保研", "竞赛", "篮球"],
+    tags: ["ENFJ", "万事通", "助人为乐", "新生领路人"],
+    bio: "大四，已入党、保研；有转专业、奖学金和竞赛等多项经历，也做过社团负责人、社团社长。爱打篮球，也喜欢说走就走的旅行，欢迎新生来交流。",
+    roles: ["社团负责人", "社团社长", "新生答疑伙伴"],
+    contact: "扫码添加微信",
+  },
+  {
+    id: "left-ear",
+    name: "左耳",
+    location: "日本 八王子市",
+    major: "自动化",
+    photo: "./assets/seniors/left-ear-photo.jpg",
+    qr: "./assets/seniors/left-ear-qr.jpg",
+    strengths: ["聊天", "校园闲逛", "爬山", "风景摄影"],
+    tags: ["INFP", "爱笑", "家教通", "避雷经验", "聊天秒回"],
+    bio: "来自山西长治的自动化专业女生，喜欢爬山、拍风景照。聊天速度不快但回复很及时，也乐意把自己踩过的雷和真实校园体验讲清楚。",
+    roles: ["曾任心理委员", "现任社团团支书"],
+    contact: "扫码添加微信",
+  },
+  {
+    id: "platinum-maple",
+    name: "白金与枫树~",
+    location: "太原理工大学",
+    major: "机械电子工程（卓越班）",
+    photo: "./assets/seniors/platinum-photo.jpg",
+    strengths: ["理科学习", "家教兼职", "期末复习", "体育运动"],
+    tags: ["兼职", "家教", "期末速成", "入党积极分子"],
+    bio: "熟悉校内外兼职，有较丰富的家教资源；期末一周复习取得高数 91、线代 88 的成绩，目前已入选入党积极分子。",
+    roles: ["机械学院家教部部长"],
+    contact: "微信号：zyq19735025939",
+  },
+  {
+    id: "lonely",
+    name: "孤妄のイケメン.",
+    location: "重庆 巴南",
+    major: "工程力学试验班",
+    photo: "./assets/seniors/lonely-photo.jpg",
+    qr: "./assets/seniors/lonely-qr.jpg",
+    strengths: ["篮球", "运动", "交流", "校园闲逛"],
+    tags: ["抽象幽默", "有时 i 有时 e", "网上冲浪", "运动"],
+    bio: "来自云南，目前就读工程力学试验班。性格活泼，对新鲜事物有很强的好奇心与探索欲，平时喜欢思考、运动，也喜欢和人交流。",
+    roles: ["试验班答疑伙伴"],
+    contact: "微信号：15287091180",
+  },
+  {
+    id: "sleeper",
+    name: "一天睡11小时",
+    location: "希腊",
+    major: "数学与应用数学",
+    photo: "./assets/seniors/sleeper-art.jpg",
+    qr: "./assets/seniors/sleeper-qr.jpg",
+    strengths: ["数学", "计算机", "学习规划", "校园美食"],
+    tags: ["专业前 10%", "综测前 10%", "耳机常驻", "享受当下"],
+    bio: "加权成绩和综测排名均位于专业前 10%。喜欢数学与计算机，也喜欢散步、探店和体验新鲜事物；已经吃遍不少榆次大学城校内外美食。",
+    roles: ["荟萃文创社团负责人之一"],
+    contact: "扫码添加微信",
+  },
+  {
+    id: "blue-bench",
+    name: "蓝色板凳爱吃面",
+    location: "太原理工大学",
+    major: "应物 2501",
+    photo: "./assets/seniors/bluebench-source.png",
+    photoClass: "is-bluebench",
+    strengths: ["转专业", "课程学习", "评奖评优", "科创竞赛", "学生工作"],
+    tags: ["专业前 10%", "综测前 5%", "愿意尝试新事物"],
+    bio: "学业成绩位于专业前 10%，大一综合素质测评位于专业前 5%。愿意和新生交流转专业、课程学习、评奖评优、科创竞赛及学生工作经验。",
+    roles: ["班委", "校级社团组织负责人"],
+    contact: "微信号：_Lzy070909",
+  },
+  {
+    id: "guide",
+    name: "新生领路人",
+    location: "太原理工大学",
+    major: "资源勘查工程",
+    photo: "./assets/seniors/guide-photo.jpg",
+    strengths: ["项目统筹", "政策解读", "资源对接", "问题落地"],
+    tags: ["班级团支书", "政策全了解", "四年规划", "务实不空谈"],
+    bio: "身在理工，眼界不止限于课本。熟悉校内规则和评优、保研、评奖路径；不做表面工作，只做真正能帮到别人的事。见过弯路，也愿意为后来人铺平道路。",
+    roles: ["班级团支书", "新生答疑负责人", "校园新生攻略负责人", "校区多部门对接人"],
+    contact: "微信昵称：🦖（原资料未提供二维码或微信号）",
+  },
+  {
+    id: "pogong",
+    name: "pogong",
+    location: "所罗门群岛",
+    major: "安全工程转机器人工程",
+    photo: "./assets/seniors/pogong-photo.jpg",
+    qr: "./assets/seniors/pogong-qr.jpg",
+    strengths: ["转专业", "入团", "社团组织", "小队协作"],
+    tags: ["i 人", "INFP", "网上冲浪", "成绩不错"],
+    bio: "山西人，有转专业和入团经历，参加过多个社团组织，也担任过小队长。可以交流专业选择、组织生活和适应大学节奏。",
+    roles: ["社团参与者", "曾任小队长"],
+    contact: "扫码添加微信",
+  },
+  {
+    id: "sisyphus",
+    name: "Sisyphus",
+    location: "太原理工大学",
+    major: "制药工程",
+    photo: "./assets/seniors/sisyphus-source.png",
+    photoClass: "is-sisyphus",
+    qr: "./assets/seniors/sisyphus-qr.png",
+    strengths: ["团队沟通", "活动策划", "专业实验", "羽毛球"],
+    tags: ["ENTP", "天秤座", "Z 青年负责人", "无畏契约"],
+    bio: "制药工程大二学生，同时是 Z 青年团队负责人。擅长沟通策划，课余爱打羽毛球、玩无畏契约；既能静心钻研专业实验，也乐意交流团队协作问题。",
+    roles: ["Z 青年团队负责人"],
+    contact: "扫码添加微信",
+  },
+  {
+    id: "poet",
+    name: "诗盅",
+    location: "太原理工大学",
+    major: "自动化",
+    photo: "./assets/seniors/poet-photo.jpg",
+    qr: "./assets/seniors/poet-qr.jpg",
+    strengths: ["入党政策", "奖学金", "转专业", "摄影", "游戏"],
+    tags: ["自动化班长", "入党积极分子", "佳能 650D", "不爱早八"],
+    bio: "24 届自动化班长，目前是入党积极分子。熟悉学校入党、奖学金和转专业政策，也有具体班委工作经验；爱打篮球、摄影，也玩三角洲、瓦、CF、光遇和王者。",
+    roles: ["自动化班长", "入党积极分子"],
+    contact: "扫码添加微信",
+  },
+];
+
 const faqs = [
   {
     question: "2026 级新生到底哪天报到？",
@@ -1483,6 +1615,7 @@ let activeMapPointId = campuses[activeCampus].defaultPoint;
 let mapView = null;
 let mapDrag = null;
 let mapTouchEnabled = false;
+let activeSeniorId = seniorProfiles[0].id;
 
 function loadChecklist() {
   try {
@@ -1977,6 +2110,109 @@ function renderGuides() {
   observeReveals();
 }
 
+function renderSeniorDirectory() {
+  const directory = document.querySelector("[data-senior-directory]");
+  const profileView = document.querySelector("[data-senior-profile]");
+  if (!directory || !profileView) return;
+
+  const activeIndex = Math.max(
+    0,
+    seniorProfiles.findIndex((profile) => profile.id === activeSeniorId),
+  );
+  const activeProfile = seniorProfiles[activeIndex];
+
+  directory.innerHTML = seniorProfiles
+    .map((profile, index) => {
+      const isActive = profile.id === activeProfile.id;
+      const photoClass = profile.photoClass ? ` ${profile.photoClass}` : "";
+      return `
+        <button
+          class="senior-person${isActive ? " is-active" : ""}"
+          type="button"
+          data-senior-id="${escapeGuideText(profile.id)}"
+          aria-pressed="${isActive}"
+          aria-label="查看 ${escapeGuideText(profile.name)} 的资料"
+        >
+          <span class="senior-person-number">${String(index + 1).padStart(2, "0")}</span>
+          <span class="senior-avatar${photoClass}" style="background-image: url('${escapeGuideText(profile.photo)}')" role="img" aria-label="${escapeGuideText(profile.name)}的头像"></span>
+          <span class="senior-person-copy">
+            <strong>${escapeGuideText(profile.name)}</strong>
+            <small>${escapeGuideText(profile.major)}</small>
+          </span>
+          <span class="senior-person-arrow" aria-hidden="true">↗</span>
+        </button>
+      `;
+    })
+    .join("");
+
+  const photoClass = activeProfile.photoClass ? ` ${activeProfile.photoClass}` : "";
+  const contactMarkup = activeProfile.qr
+    ? `
+        <div class="senior-contact-qr">
+          <a
+            class="senior-contact-code"
+            href="${escapeGuideText(activeProfile.qr)}"
+            target="_blank"
+            rel="noopener"
+            style="background-image: url('${escapeGuideText(activeProfile.qr)}')"
+            aria-label="打开${escapeGuideText(activeProfile.name)}的微信二维码原图"
+          ></a>
+          <div>
+            <span>WECHAT CONTACT</span>
+            <strong>${escapeGuideText(activeProfile.contact)}</strong>
+            <small>扫描或点击二维码打开原图，添加时请说明“2026 新生手册”。</small>
+          </div>
+        </div>
+      `
+    : `
+        <div class="senior-contact-text">
+          <span>CONTACT</span>
+          <strong>${escapeGuideText(activeProfile.contact)}</strong>
+          <small>页面仅展示本人提供的信息，不补写未提供的联系方式。</small>
+        </div>
+      `;
+
+  profileView.innerHTML = `
+    <article class="senior-selected-media">
+      <div class="senior-selected-topline">
+        <span>SELECTED MENTOR / ${String(activeIndex + 1).padStart(2, "0")}</span>
+        <small>${escapeGuideText(activeProfile.location)}</small>
+      </div>
+      <div class="senior-selected-photo${photoClass}" style="background-image: url('${escapeGuideText(activeProfile.photo)}')" role="img" aria-label="${escapeGuideText(activeProfile.name)}的照片"></div>
+      ${contactMarkup}
+    </article>
+    <article class="senior-selected-info">
+      <header>
+        <div>
+          <span class="senior-profile-kicker">MEET THE SENIOR</span>
+          <h3>${escapeGuideText(activeProfile.name)}</h3>
+          <p>${escapeGuideText(activeProfile.major)}</p>
+        </div>
+        <b>${String(activeIndex + 1).padStart(2, "0")}</b>
+      </header>
+      <section class="senior-info-block">
+        <span class="senior-info-label">擅长交流</span>
+        <div class="senior-strength-list">
+          ${activeProfile.strengths.map((item) => `<span>${escapeGuideText(item)}</span>`).join("")}
+        </div>
+      </section>
+      <section class="senior-info-block">
+        <span class="senior-info-label">个人介绍</span>
+        <p class="senior-profile-bio">${escapeGuideText(activeProfile.bio)}</p>
+      </section>
+      <section class="senior-info-block senior-role-block">
+        <span class="senior-info-label">经历与职务</span>
+        <ul>
+          ${activeProfile.roles.map((role) => `<li>${escapeGuideText(role)}</li>`).join("")}
+        </ul>
+      </section>
+      <div class="senior-tag-list">
+        ${activeProfile.tags.map((tag) => `<span># ${escapeGuideText(tag)}</span>`).join("")}
+      </div>
+    </article>
+  `;
+}
+
 function renderFaqs() {
   document.querySelector("[data-faq-list]").innerHTML = faqs
     .map(
@@ -2448,6 +2684,17 @@ async function sharePage() {
 }
 
 function handleClick(event) {
+  const seniorButton = event.target.closest("[data-senior-id]");
+  if (seniorButton) {
+    activeSeniorId = seniorButton.dataset.seniorId;
+    renderSeniorDirectory();
+    document.querySelector("[data-senior-profile]")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+    return;
+  }
+
   const expandButton = event.target.closest("[data-guide-expand]");
   if (expandButton) {
     document.querySelectorAll("[data-guide-list] .guide-card, [data-guide-list] .guide-chapter").forEach((detail) => {
@@ -2632,6 +2879,7 @@ function init() {
   renderChecklist();
   renderCategoryFilters();
   renderGuides();
+  renderSeniorDirectory();
   renderFaqs();
   setupMapInteractions();
   switchCampus(activeCampus);
